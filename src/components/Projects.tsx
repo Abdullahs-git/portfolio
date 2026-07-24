@@ -1,59 +1,102 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollWrapperRef = useRef<HTMLDivElement>(null);
+
   const projects = [
     {
-      title: "Enterprise B2C Cloud",
-      category: "Full-Stack AI",
-      desc: "Architected a scalable SaaS infrastructure for 1M+ active users, integrating predictive analytics via PyTorch.",
+      title: "ForexAI",
+      category: "Mobile App for Forex Learning & Market Prediction",
+      desc: "React Native • XGBoost • Kronos AI. Fine-tuned XGBoost and Decision Trees ensembled with Kronos AI for robust market movement prediction.",
     },
     {
-      title: "Quantum Route Optimizer",
-      category: "MAPF Algorithms",
-      desc: "Developed a distributed route optimizer based on MAPF-Lite, reducing compute time by 40% for logistics fleets.",
+      title: "MAPF-Lite",
+      category: "Parameter-Efficient Multimodal Deepfake Detection",
+      desc: "PyTorch • Vision Transformers • CLIP • Whisper. Achieved 99.34% accuracy and 4.7x real-time inference speed using frozen backbones and SRM analysis.",
     },
     {
-      title: "Omni-Channel NLP Pipeline",
-      category: "LLM Infrastructure",
-      desc: "Built a robust RAG pipeline utilizing massive parallel indexing and custom embeddings for real-time inference.",
+      title: "TeleMed AI",
+      category: "Telemedicine Ecosystem",
+      desc: "React Native • Firebase • Computer Vision. Cross-platform system with AI-powered diagnostic scans and multi-role architecture.",
+    },
+    {
+      title: "LingumedAI",
+      category: "Clinical Decision Support for Nurses",
+      desc: "React • FastAPI • LangChain • pgvector. Domain-specific RAG pipeline ingesting medical literature to provide grounded, hallucination-resistant guidance.",
     }
   ];
 
-  return (
-    <section id="projects" className="py-32 px-4 md:px-12 border-t border-[#222]">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-[8vw] leading-[0.8] font-syne font-extrabold uppercase tracking-tighter mb-20">
-          Selected Works
-        </h2>
-        
-        <div className="flex flex-col border-t border-[#222]">
-          {projects.map((proj, idx) => (
-            <div 
-              key={idx} 
-              className="group relative flex flex-col md:flex-row justify-between items-start md:items-center py-12 border-b border-[#222] hover:bg-white hover:text-black transition-colors duration-500 px-4 -mx-4"
-            >
-              <div className="flex flex-col gap-2">
-                <span className="text-sm font-manrope font-bold uppercase tracking-widest text-[#555] group-hover:text-[#888] transition-colors">
-                  {proj.category}
-                </span>
-                <h3 className="text-3xl md:text-5xl font-syne font-bold uppercase tracking-tight">
-                  {proj.title}
-                </h3>
-              </div>
-              
-              <div className="mt-6 md:mt-0 max-w-sm font-manrope text-sm md:text-base text-[#888] group-hover:text-[#333] transition-colors">
-                {proj.desc}
-              </div>
+  useEffect(() => {
+    if (!containerRef.current || !scrollWrapperRef.current) return;
+    
+    const sections = gsap.utils.toArray(".project-panel");
+    
+    const tween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        pin: true,
+        scrub: 1,
+        end: "+=3000", // Controls how long the user scrolls to see all horizontal items
+      }
+    });
 
-              <div className="absolute right-8 opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 hidden md:block">
-                <ArrowUpRight className="w-12 h-12" />
-              </div>
+    return () => {
+      tween.kill();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
+
+  return (
+    <section id="projects" ref={containerRef} className="h-screen w-full overflow-hidden bg-[#0a0a0a] border-t border-[#222]">
+      
+      <div className="absolute top-12 left-4 md:left-12 z-20">
+        <h2 className="text-[5vw] leading-[0.8] font-syne font-extrabold uppercase tracking-tighter text-[#fafafa]">
+          02 Works
+        </h2>
+      </div>
+
+      <div ref={scrollWrapperRef} className="flex h-full w-[400vw]">
+        {projects.map((proj, idx) => (
+          <div 
+            key={idx} 
+            className="project-panel w-screen h-full flex flex-col justify-center px-4 md:px-32 relative"
+          >
+            <div className="absolute inset-0 opacity-5 pointer-events-none text-[20vw] font-syne font-black whitespace-nowrap overflow-hidden translate-y-1/2">
+              {proj.title}
             </div>
-          ))}
-        </div>
+
+            <div className="relative z-10 max-w-4xl">
+              <span className="text-sm font-manrope font-bold uppercase tracking-widest text-[#06b6d4] mb-4 block">
+                {proj.category}
+              </span>
+              <h3 className="text-5xl md:text-7xl font-syne font-bold uppercase tracking-tight text-[#fafafa] mb-8">
+                {proj.title}
+              </h3>
+              <p className="font-manrope text-lg md:text-2xl text-[#888] leading-relaxed max-w-2xl border-l border-[#333] pl-6">
+                {proj.desc}
+              </p>
+              
+              <button className="mt-12 flex items-center gap-4 text-xs font-syne font-bold uppercase tracking-widest hover:text-[#06b6d4] transition-colors group">
+                <span className="border-b border-[#333] group-hover:border-[#06b6d4] pb-1">View Case Study</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </div>
+            
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[10vw] font-syne font-black text-outline opacity-20 mr-12 hidden lg:block">
+              0{idx + 1}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

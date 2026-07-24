@@ -14,12 +14,14 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import CommandPalette from "@/components/CommandPalette";
+import BackgroundCanvas from "@/components/BackgroundCanvas";
 
 export default function Home() {
   const [cmdPaletteOpen, setCmdPaletteOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#fafafa] relative font-sans">
+    <main className="min-h-screen bg-transparent text-[#fafafa] relative font-sans">
+      <BackgroundCanvas />
       <CustomCursor />
       <CommandPalette isOpen={cmdPaletteOpen} onClose={() => setCmdPaletteOpen(false)} />
 
