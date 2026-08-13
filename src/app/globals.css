@@ -112,3 +112,13 @@ html.lenis, html.lenis body {
   overflow: hidden;
   display: inline-block;
 }
+
+.text-outline-os {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 255, 65, 0.4);
+}
+
+.text-outline-os:hover {
+  color: var(--text-primary);
+  -webkit-text-stroke: 1px transparent;
+}
