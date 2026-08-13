@@ -1,20 +1,21 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const [position, setPosition] = useState({ x: -100, y: -100 });
 
   useEffect(() => {
     // Hide default cursor on body
     document.body.style.cursor = "none";
 
+    const xTo = gsap.quickTo(cursorRef.current, "x", { duration: 0.15, ease: "power3" });
+    const yTo = gsap.quickTo(cursorRef.current, "y", { duration: 0.15, ease: "power3" });
+
     const updateMousePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      xTo(e.clientX - 10);
+      yTo(e.clientY - 10);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -25,9 +26,9 @@ export default function CustomCursor() {
         target.closest("a") ||
         target.closest("button")
       ) {
-        setIsHovering(true);
+        gsap.to(cursorRef.current, { scale: 2, duration: 0.2, ease: "power2.out" });
       } else {
-        setIsHovering(false);
+        gsap.to(cursorRef.current, { scale: 1, duration: 0.2, ease: "power2.out" });
       }
     };
 
@@ -42,20 +43,10 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <motion.div
+    <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[100] flex items-center justify-center bg-white mix-blend-difference"
-      animate={{
-        x: position.x - 16,
-        y: position.y - 16,
-        scale: isHovering ? 2.5 : 1,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 800,
-        damping: 35,
-        mass: 0.2,
-      }}
+      className="fixed top-0 left-0 w-5 h-5 pointer-events-none z-[100] bg-os-primary mix-blend-difference"
+      style={{ willChange: "transform" }}
     />
   );
 }

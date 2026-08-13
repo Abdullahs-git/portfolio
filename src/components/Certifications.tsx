@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Terminal } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,23 +40,26 @@ export default function Certifications() {
   }, []);
 
   return (
-    <section id="certifications" ref={sectionRef} className="py-32 px-4 md:px-12 border-t border-[#222]">
+    <section id="certifications" ref={sectionRef} className="py-32 px-4 md:px-12 border-t border-os-border bg-os-bg font-mono">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-[5vw] leading-[0.8] font-syne font-extrabold uppercase tracking-tighter text-outline opacity-50 mb-16">
-          04 Credentials
-        </h2>
+        <div className="os-window p-2 bg-os-panel border border-os-primary mb-12 inline-block">
+          <div className="flex items-center gap-2 text-os-primary font-bold">
+            <Terminal className="w-4 h-4" />
+            <span>cat credentials.sys</span>
+          </div>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-4">
           {certs.map((cert, idx) => (
-            <div key={idx} className="relative group overflow-hidden border-b border-[#222] py-6 flex justify-between items-center cursor-default">
-              <div className="cert-row absolute inset-0 bg-[#111] z-0 -mx-4" style={{ scaleX: 0 }} />
+            <div key={idx} className="relative group overflow-hidden border-b border-os-border py-4 flex justify-between items-center cursor-default bg-os-panel px-4">
+              <div className="cert-row absolute inset-0 bg-os-primary z-0 opacity-10" style={{ transform: 'scaleX(0)' }} />
               
-              <div className="relative z-10 font-syne text-lg md:text-xl uppercase tracking-tight group-hover:text-[#06b6d4] transition-colors">
-                {cert.title}
+              <div className="relative z-10 text-sm md:text-base font-bold uppercase tracking-tight text-os-text group-hover:text-os-primary transition-colors">
+                <span className="text-os-primary mr-2">&gt;</span>{cert.title}
               </div>
-              <div className="relative z-10 flex gap-4 font-manrope text-sm font-bold uppercase tracking-widest text-[#555]">
+              <div className="relative z-10 flex gap-4 text-xs font-bold uppercase tracking-widest text-os-muted">
                 <span>{cert.issuer}</span>
-                <span>{cert.year}</span>
+                <span>[{cert.year}]</span>
               </div>
             </div>
           ))}
