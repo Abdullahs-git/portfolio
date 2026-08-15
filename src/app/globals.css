@@ -2,47 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Playful Bento Design System Tokens ─── */
 :root {
-  --bg-primary: #000000;
-  --text-primary: #00FF41;
-  --text-muted: #888888;
-  --border-color: #333333;
+  /* Core palette - Light & Vibrant */
+  --bg-base: #FFCE45;       /* Warm yellow/orange background */
+  --bg-elevated: #FFFFFF;    /* Pure white for cards */
+  --bg-card: #FFFFFF;        /* Pure white */
+  --bg-card-hover: #FFF9ED;  /* Very light warm yellow for hover */
+  
+  /* Playful Accents */
+  --accent-primary: #FF4238;   /* Vibrant Red */
+  --accent-secondary: #3B7FFF; /* Bright Blue */
+  --accent-tertiary: #FF8BA7;  /* Bright Pink */
+  --accent-quaternary: #FFFFFF;/* White */
+
+  /* Text Colors */
+  --text-primary: #121826;   /* Deep Ink/Navy */
+  --text-muted: #4B5563;     /* Mid Grey */
+  --text-dim: #9CA3AF;       /* Light Grey */
+
+  /* Typography */
+  --font-display: var(--font-fredoka), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-body: var(--font-nunito), sans-serif;
+
+  /* Bento grid system - Bubble Aesthetic */
+  --grid-gap: 24px;
+  --grid-gap-lg: 32px;
+  --card-radius: 40px;       /* Extremely round for bubble feel */
+  --card-radius-sm: 24px;
+
+  /* Glassmorphism / Shadows */
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: #121826; /* Solid dark border for playful contrast */
+  --glass-blur: 16px;
+
+  /* Animation tokens */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.7s;
+  --duration-reveal: 0.9s;
 }
 
+/* ─── Base Styles ─── */
 body {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-base);
   color: var(--text-primary);
   overflow-x: hidden;
-  /* Retro terminal selection */
-  selection-background-color: #00FF41;
-  selection-color: #000000;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: #00FF41;
-  color: #000000;
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
 }
 
-/* Custom terminal scrollbar */
+/* ─── Custom Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111111;
-  border-left: 1px solid #333333;
+  background: var(--bg-base);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333;
-  border: 1px solid #00FF41;
+  background: #E5E5E5;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00FF41;
+  background: var(--accent-secondary);
 }
 
-/* Lenis Smooth Scroll Recommended CSS */
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #E5E5E5 var(--bg-base);
+}
+
+/* ─── Lenis Smooth Scroll ─── */
 html.lenis, html.lenis body {
   height: auto;
 }
@@ -63,62 +104,126 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* CRT Scanline overlay */
-.scanline-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0),
-    rgba(255,255,255,0) 50%,
-    rgba(0,0,0,0.2) 50%,
-    rgba(0,0,0,0.2)
-  );
-  background-size: 100% 4px;
-  opacity: 0.15;
+/* ─── Custom Cursor (desktop only) ─── */
+@media (pointer: fine) {
+  html.cursor-ready,
+  html.cursor-ready * {
+    cursor: none !important;
+  }
 }
 
-/* OS specific utilities */
-.os-window {
-  border: 1px solid var(--text-primary);
-  background-color: #111111;
-  box-shadow: 4px 4px 0px 0px rgba(0, 255, 65, 0.2);
+/* ─── Utility Classes ─── */
+
+/* Playful Bubble Card */
+.bento-card {
+  background: var(--bg-card);
+  border: 3px solid var(--text-primary);
+  border-radius: var(--card-radius);
+  box-shadow: 8px 8px 0px var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.os-header {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  padding: 0.25rem 0.5rem;
-  font-weight: bold;
-  font-family: var(--font-jetbrains-mono), monospace;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--text-primary);
+.bento-card:hover {
+  box-shadow: 12px 12px 0px var(--text-primary);
+  transform: translate(-4px, -4px);
 }
 
-.text-outline {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 255, 65, 0.4);
+/* Section padding */
+.section-padding {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-.text-outline:hover {
-  color: var(--text-primary);
-  -webkit-text-stroke: 1px transparent;
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
-/* Utility to hide text overflow for GSAP line reveals */
-.reveal-mask {
-  overflow: hidden;
-  display: inline-block;
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
 }
 
-.text-outline-os {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 255, 65, 0.4);
+/* Text gradient */
+.text-gradient-playful {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.text-outline-os:hover {
-  color: var(--text-primary);
-  -webkit-text-stroke: 1px transparent;
+/* Gradient fade overlays */
+.gradient-fade-bottom {
+  background: linear-gradient(to top, var(--bg-base) 0%, transparent 100%);
+}
+
+.gradient-fade-top {
+  background: linear-gradient(to bottom, var(--bg-base) 0%, transparent 100%);
+}
+
+/* Marquee animation */
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Keyframe Animations ─── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
 }

@@ -8,39 +8,61 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        os: {
-          bg: '#000000',
-          panel: '#111111',
-          primary: '#00FF41',
-          secondary: '#00FFFF',
-          border: '#333333',
-          text: '#E0E0E0',
-          muted: '#888888',
-        }
+        background: 'var(--bg-base)',
+        'bg-elevated': 'var(--bg-elevated)',
+        'bg-card': 'var(--bg-card)',
+        'bg-card-hover': 'var(--bg-card-hover)',
+        accent: {
+          primary: 'var(--accent-primary)',
+          secondary: 'var(--accent-secondary)',
+          tertiary: 'var(--accent-tertiary)',
+          quaternary: 'var(--accent-quaternary)',
+        },
+        text: {
+          primary: 'var(--text-primary)',
+          muted: 'var(--text-muted)',
+          dim: 'var(--text-dim)',
+        },
+        glass: {
+          bg: 'var(--glass-bg)',
+          border: 'var(--glass-border)',
+        },
       },
       fontFamily: {
-        display: ['var(--font-space-grotesk)', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'monospace'],
-        sans: ['var(--font-inter)', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+        body: ['var(--font-body)', 'sans-serif'],
+      },
+      borderRadius: {
+        'bento': '32px',
+        'bento-sm': '20px',
+      },
+      backdropBlur: {
+        'glass': '24px',
       },
       boxShadow: {
-        'os-window': '4px 4px 0px 0px rgba(0, 255, 65, 0.2)',
-        'os-window-hover': '6px 6px 0px 0px rgba(0, 255, 65, 0.4)',
+        'card': '0 12px 32px rgba(0, 0, 0, 0.03)',
+        'card-hover': '0 20px 48px rgba(0, 0, 0, 0.06)',
+        'float': '0 16px 40px rgba(0, 0, 0, 0.08)',
+        'glow-primary': '0 8px 24px rgba(255, 90, 54, 0.3)',
+        'glow-secondary': '0 8px 24px rgba(0, 212, 178, 0.3)',
       },
       animation: {
+        'float': 'float 4s ease-in-out infinite',
+        'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+        'shimmer': 'shimmer 2s ease-in-out infinite',
+        'spin-slow': 'spin 80s linear infinite',
+        'spin-medium': 'spin 40s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
         'blink': 'blink 1s step-end infinite',
-        'scanline': 'scanline 8s linear infinite',
       },
-      keyframes: {
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        },
-        scanline: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(100vh)' },
-        }
-      }
+      transitionTimingFunction: {
+        'expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'smooth': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+      },
+      screens: {
+        'xs': '475px',
+      },
     },
   },
   plugins: [],

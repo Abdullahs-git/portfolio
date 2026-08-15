@@ -1,45 +1,174 @@
-"use client";
+'use client';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { CONTENT } from '@/data/content';
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { Terminal } from "lucide-react";
-
-export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette: () => void }) {
-  const navRef = useRef<HTMLElement>(null);
+export default function Navbar() {
+  const [activeSection, setActiveSection] = useState('hero');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (navRef.current) {
-      gsap.fromTo(navRef.current, 
-        { opacity: 0, y: -20 }, 
-        { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power3.out" }
-      );
-    }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+
+      const sections = ['hero', 'about', 'research', 'experience', 'projects', 'stack', 'credentials', 'contact'];
+      let current = 'hero';
+
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4) {
+            current = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollTo = (id: string) => {
+    setMobileMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'research', label: 'Research' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'stack', label: 'Stack' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
-    <nav 
-      ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 md:px-8 border-b border-os-border bg-os-bg/90 backdrop-blur-sm pointer-events-auto font-mono"
-    >
-      <div className="flex items-center gap-2">
-        <Terminal className="w-5 h-5 text-os-primary" />
-        <div className="text-sm font-bold uppercase tracking-tight text-os-text">
-          Abdullah_OS
-        </div>
-      </div>
-
-      <div className="hidden md:flex gap-8 items-center text-xs font-semibold uppercase tracking-wider text-os-muted">
-        <a href="#about" className="hover:text-os-primary transition-colors">cd /about</a>
-        <a href="#projects" className="hover:text-os-primary transition-colors">cd /work</a>
-        <a href="#publications" className="hover:text-os-primary transition-colors">cd /research</a>
-      </div>
-
-      <button
-        onClick={onOpenCommandPalette}
-        className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-os-primary hover:text-os-bg hover:bg-os-primary px-3 py-1.5 border border-os-primary transition-colors"
+    <>
+      {/* Floating Pill Navbar (Desktop) */}
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block"
       >
-        <span>[CMD]</span>
-      </button>
-    </nav>
+        <div
+          className={cn(
+            'flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300',
+            isScrolled
+              ? 'bg-white shadow-[6px_6px_0px_#121826] border-[3px] border-text-primary'
+              : 'bg-transparent'
+          )}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className={cn(
+                'relative px-5 py-2.5 rounded-full font-body font-bold text-[13px] tracking-wide transition-colors',
+                activeSection === item.id
+                  ? 'text-white'
+                  : 'text-text-muted hover:text-text-primary'
+              )}
+              data-cursor="hover"
+            >
+              {activeSection === item.id && (
+                <motion.div
+                  layoutId="nav-pill"
+                  className="absolute inset-0 bg-accent-primary rounded-full z-[-1] border-[3px] border-text-primary shadow-[4px_4px_0px_#121826]"
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                />
+              )}
+              <span className="relative z-10">{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </motion.header>
+
+      {/* Mobile Header */}
+      <header
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300',
+          isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-glass-border' : 'bg-transparent'
+        )}
+      >
+        <div className="flex items-center justify-between px-6 py-4">
+          <span className="font-display font-black text-xl text-text-primary tracking-tighter">
+            MAB.
+          </span>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 z-50 relative"
+          >
+            <span
+              className={cn(
+                'w-6 h-0.5 bg-text-primary transition-all duration-300 origin-center',
+                mobileMenuOpen && 'rotate-45 translate-y-2'
+              )}
+            />
+            <span
+              className={cn(
+                'w-6 h-0.5 bg-text-primary transition-all duration-300',
+                mobileMenuOpen && 'opacity-0'
+              )}
+            />
+            <span
+              className={cn(
+                'w-6 h-0.5 bg-text-primary transition-all duration-300 origin-center',
+                mobileMenuOpen && '-rotate-45 -translate-y-2'
+              )}
+            />
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-bg-base flex flex-col items-center justify-center md:hidden"
+          >
+            <div className="flex flex-col items-center gap-8">
+              {navItems.map((item, i) => (
+                <motion.button
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  onClick={() => scrollTo(item.id)}
+                  className={cn(
+                    'font-display text-4xl font-black tracking-tighter',
+                    activeSection === item.id ? 'text-accent-primary' : 'text-text-primary'
+                  )}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="mt-10 flex gap-6"
+              >
+                <a href={`https://${CONTENT.contact.linkedin}`} target="_blank" className="text-text-primary font-body font-bold">LinkedIn</a>
+                <a href={`https://${CONTENT.contact.github}`} target="_blank" className="text-text-primary font-body font-bold">GitHub</a>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

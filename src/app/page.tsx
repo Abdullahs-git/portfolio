@@ -1,37 +1,37 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Locations from "@/components/Locations";
-import Projects from "@/components/Projects";
-import Publications from "@/components/Publications";
-import Arsenal from "@/components/Arsenal";
-import Certifications from "@/components/Certifications";
-import Education from "@/components/Education";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
-import BackgroundCanvas from "@/components/BackgroundCanvas";
-import ClientInteractions from "@/components/ClientInteractions";
+"use client";
+
+import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ResearchSection } from "@/components/sections/ResearchSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { StackSection } from "@/components/sections/StackSection";
+import { EducationSection } from "@/components/sections/EducationSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { GithubAnalyticsSection } from "@/components/sections/GithubAnalyticsSection";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-transparent text-os-text relative font-sans">
-      <BackgroundCanvas />
+    <>
       <CustomCursor />
       
-      <ClientInteractions />
+      <div className="opacity-100 transition-opacity duration-1000">
+        <Navbar />
 
-      <div className="relative z-0">
-        <Hero />
-        <About />
-        <Projects />
-        <Publications />
-        <Arsenal />
-        <Locations />
-        <Certifications />
-        <Education />
-        <Contact />
-        <Footer />
+        <main className="min-h-screen bg-transparent relative flex flex-col w-full overflow-hidden">
+          <HeroSection />
+          <AboutSection />
+          <ResearchSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <StackSection />
+          <GithubAnalyticsSection />
+          <EducationSection />
+          <ContactSection />
+        </main>
       </div>
-    </main>
+    </>
   );
 }

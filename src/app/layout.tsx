@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import { Syne, Manrope, JetBrains_Mono } from "next/font/google";
+import { Fredoka, Nunito, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import { cn } from "@/lib/utils";
 
-const syne = Syne({
+const fredoka = Fredoka({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-fredoka",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const manrope = Manrope({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-manrope",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-nunito",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -20,17 +22,33 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
 });
 
-import SmoothScroll from "@/components/SmoothScroll";
-
 export const metadata: Metadata = {
-  title: "Muhammad Abdullah Butt | Senior Full-Stack AI Engineer & Architect",
-  description: "Experience the world of Muhammad Abdullah Butt — Senior Full-Stack AI Engineer, Senior Architect & UI/UX Designer. Multimodal AI research, LLM pipelines, Next.js, PyTorch.",
-  keywords: ["Muhammad Abdullah Butt", "Full-Stack AI Engineer", "AI Researcher", "MAPF-Lite", "Next.js Developer", "UI UX Architect"],
+  title: "Muhammad Abdullah Butt | Senior Full-Stack AI Engineer & Researcher",
+  description:
+    "Portfolio of Muhammad Abdullah Butt - Senior Full-Stack AI Engineer, published researcher (Springer Nature), and architect of scalable systems.",
+  keywords: [
+    "Full Stack Engineer",
+    "AI Researcher",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Machine Learning",
+    "LLM",
+    "Portfolio",
+  ],
   authors: [{ name: "Muhammad Abdullah Butt" }],
   openGraph: {
-    title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer",
-    description: "Interactive portfolio & world experience of Abdullah — AI research, job locations, live projects, and publications.",
+    title: "Muhammad Abdullah Butt | Senior Full-Stack AI Engineer",
+    description:
+      "Published AI researcher. Architecting scalable systems.",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Muhammad Abdullah Butt | Senior Full-Stack AI Engineer",
+    description:
+      "Published AI researcher. Architecting scalable systems.",
   },
 };
 
@@ -42,12 +60,42 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${syne.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased bg-[#050505] text-[#fafafa] selection:bg-white selection:text-black`}
+        className={cn(
+          fredoka.variable,
+          nunito.variable,
+          jetbrainsMono.variable,
+          "antialiased bg-background text-text-primary font-body selection:bg-accent-primary selection:text-white"
+        )}
       >
         <div className="noise-overlay"></div>
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <SmoothScroll>{children}</SmoothScroll>
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Muhammad Abdullah Butt",
+              jobTitle: "Senior Full-Stack AI Engineer",
+              url: "https://abdullahbutt.dev",
+              sameAs: [
+                "https://linkedin.com/in/muhammadabdullahbutt",
+                "https://github.com/Abdullahs-git",
+              ],
+              knowsAbout: [
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Full Stack Development",
+                "React",
+                "Next.js",
+                "Python",
+                "TypeScript",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );
