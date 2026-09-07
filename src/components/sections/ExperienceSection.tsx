@@ -1,90 +1,61 @@
 'use client';
-import { motion } from 'framer-motion';
 import { CONTENT } from '@/data/content';
-import { Reveal } from '@/components/ui/Reveal';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { BentoCard } from '@/components/ui/BentoCard';
+import { FadeIn } from '@/components/ui/FadeIn';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="relative w-full py-32 md:py-48 px-6 md:px-12 lg:px-24">
-      <div className="max-w-4xl mx-auto">
-        <SectionHeading number="3" title="Experience" />
+    <section id="experience" className="relative w-full bg-white py-24 md:py-32 lg:py-40 border-t border-gray-200">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <SectionLabel number="03" title="Experience" />
 
-        <div className="mt-16 md:mt-32 relative">
-          {/* Vertical Line */}
-          <div className="absolute left-[28px] md:left-[50%] top-0 bottom-0 w-2 bg-text-primary rounded-full -translate-x-1/2">
-            <motion.div
-              className="absolute top-0 w-full bg-accent-primary rounded-full origin-top"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true, margin: '-20%' }}
-              transition={{ duration: 1.5, ease: 'easeInOut' }}
-              style={{ bottom: 0 }}
-            />
-          </div>
-
-          <div className="flex flex-col gap-12 md:gap-24 relative z-10">
-            {CONTENT.experience.map((exp, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <div key={index} className="flex flex-col md:flex-row w-full group relative">
-                  
-                  {/* Center Node (Bubble) */}
-                  <div className="absolute left-[28px] md:left-1/2 top-8 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-accent-tertiary border-[4px] border-text-primary flex items-center justify-center z-20 transition-transform duration-500 group-hover:scale-125 shadow-[2px_2px_0px_#121826]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-ping-slow" />
-                  </div>
-
-                  {/* Company Details (Opposite side of card on desktop) */}
-                  <div className={`hidden md:block w-1/2 pt-4 ${!isEven ? 'pr-12 lg:pr-16 order-1 text-right' : 'pl-12 lg:pl-16 order-2 text-left'}`}>
-                    <Reveal width="100%" delay={0.2}>
-                      <div className={`flex flex-col ${!isEven ? 'items-end' : 'items-start'}`}>
-                        <span className="font-display font-black text-2xl text-text-primary tracking-tight">
-                          {exp.company}
-                        </span>
-                        <span className="font-mono text-sm text-accent-primary mt-1 font-semibold uppercase tracking-widest">
-                          {exp.duration}
-                        </span>
-                      </div>
-                    </Reveal>
-                  </div>
-
-                  {/* Card Content */}
-                  <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${isEven ? 'md:pr-12 lg:pr-16 order-1 text-left' : 'md:pl-12 lg:pl-16 order-2 text-left'}`}>
-                    <Reveal width="100%">
-                      <BentoCard 
-                        className="!p-8"
-                        accentColor="primary"
-                      >
-                        <div className="md:hidden flex flex-col mb-6 text-left">
-                          <span className="font-display font-black text-2xl text-text-primary tracking-tight">
-                            {exp.company}
-                          </span>
-                          <span className="font-mono text-[11px] text-accent-primary mt-1 font-semibold uppercase tracking-widest">
-                            {exp.duration}
-                          </span>
-                        </div>
-
-                        <div className="flex flex-col items-start text-left mb-6">
-                          <h4 className="font-display text-xl font-bold text-text-primary">{exp.role}</h4>
-                        </div>
-
-                        <ul className="flex flex-col gap-3 font-body text-sm text-text-muted leading-relaxed font-medium items-start text-left">
-                          {exp.achievements.map((ach, i) => (
-                            <li key={i} className="flex gap-3 max-w-lg">
-                              <span className="text-accent-primary font-bold mt-0.5">›</span>
-                              <span>{ach}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </BentoCard>
-                    </Reveal>
-                  </div>
-
+        <div className="flex flex-col mt-12">
+          {CONTENT.experience.map((exp, i) => (
+            <FadeIn key={`${exp.company}-${i}`} delay={i * 0.08}>
+              <div
+                className={`grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 py-10 md:py-14 ${
+                  i !== CONTENT.experience.length - 1 ? 'border-b border-gray-200' : ''
+                }`}
+              >
+                {/* Left — Role & Company */}
+                <div className="md:col-span-4 lg:col-span-4">
+                  <h3 className="font-sans text-xl md:text-2xl font-bold tracking-tight text-black leading-tight">
+                    {exp.role}
+                  </h3>
+                  <p className="font-sans text-sm text-gray-500 mt-1 font-light">
+                    {exp.company}{exp.location ? ` — ${exp.location}` : ''}
+                  </p>
+                  <span className="inline-block mt-3 font-mono text-[10px] tracking-wider uppercase text-gray-400 bg-gray-50 px-2.5 py-1 border border-gray-200">
+                    {exp.duration}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Right — Metric-Led Bullets & Scope */}
+                <div className="md:col-span-8 lg:col-span-8">
+                  {exp.bullets && exp.bullets.length > 0 ? (
+                    <ul className="flex flex-col gap-4">
+                      {exp.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-3">
+                          {bullet.metric && (
+                            <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold bg-gray-100 px-2 py-0.5 self-start border border-gray-200 flex-shrink-0">
+                              {bullet.metric}
+                            </span>
+                          )}
+                          <span className="font-sans text-sm text-gray-600 leading-relaxed font-light">
+                            {bullet.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="font-sans text-sm text-gray-500 leading-relaxed font-light">
+                      {exp.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

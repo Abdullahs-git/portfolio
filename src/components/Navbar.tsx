@@ -1,170 +1,104 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { CONTENT } from '@/data/content';
+import { Menu, X } from 'lucide-react';
+
+const NAV_ITEMS = [
+  { label: 'Research', href: '#research' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Stack', href: '#stack' },
+  { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('hero');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      const sections = ['hero', 'about', 'research', 'experience', 'projects', 'stack', 'credentials', 'contact'];
-      let current = 'hero';
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4) {
-            current = section;
-            break;
-          }
-        }
-      }
-      setActiveSection(current);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const scrollTo = (id: string) => {
-    setMobileMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const navItems = [
-    { id: 'about', label: 'About' },
-    { id: 'research', label: 'Research' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'stack', label: 'Stack' },
-    { id: 'contact', label: 'Contact' },
-  ];
 
   return (
     <>
-      {/* Floating Pill Navbar (Desktop) */}
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5, ease: [0.25, 0, 0.1, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-editorial ${
+          scrolled || mobileMenuOpen
+            ? 'bg-white/95 backdrop-blur-md border-b border-gray-200'
+            : 'bg-transparent'
+        }`}
       >
-        <div
-          className={cn(
-            'flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300',
-            isScrolled
-              ? 'bg-white shadow-[6px_6px_0px_#121826] border-[3px] border-text-primary'
-              : 'bg-transparent'
-          )}
-        >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className={cn(
-                'relative px-5 py-2.5 rounded-full font-body font-bold text-[13px] tracking-wide transition-colors',
-                activeSection === item.id
-                  ? 'text-white'
-                  : 'text-text-muted hover:text-text-primary'
-              )}
-              data-cursor="hover"
-            >
-              {activeSection === item.id && (
-                <motion.div
-                  layoutId="nav-pill"
-                  className="absolute inset-0 bg-accent-primary rounded-full z-[-1] border-[3px] border-text-primary shadow-[4px_4px_0px_#121826]"
-                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                />
-              )}
-              <span className="relative z-10">{item.label}</span>
-            </button>
-          ))}
-        </div>
-      </motion.header>
+        <nav className="max-w-[1400px] mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
+          {/* Left */}
+          <a href="#" className="font-mono text-[10px] tracking-wider text-black uppercase">
+            <span className="font-medium">[MUHAMMAD ABDULLAH BUTT]</span>
+            <span className="text-gray-400 hidden sm:inline"> — PORTFOLIO &apos;26</span>
+          </a>
 
-      {/* Mobile Header */}
-      <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300',
-          isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-glass-border' : 'bg-transparent'
-        )}
-      >
-        <div className="flex items-center justify-between px-6 py-4">
-          <span className="font-display font-black text-xl text-text-primary tracking-tighter">
-            MAB.
-          </span>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="font-mono text-[10px] tracking-wider text-gray-500 uppercase hover:text-black transition-colors duration-300"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Right Desktop Info */}
+          <div className="hidden md:flex items-center gap-4">
+            <span className="font-mono text-[10px] tracking-wider text-gray-400 uppercase">
+              STATUS: <span className="text-black font-semibold">AVAILABLE</span>
+            </span>
+          </div>
+
+          {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 z-50 relative"
+            className="md:hidden p-2 text-black hover:text-gray-600 transition-colors focus:outline-none"
+            aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
           >
-            <span
-              className={cn(
-                'w-6 h-0.5 bg-text-primary transition-all duration-300 origin-center',
-                mobileMenuOpen && 'rotate-45 translate-y-2'
-              )}
-            />
-            <span
-              className={cn(
-                'w-6 h-0.5 bg-text-primary transition-all duration-300',
-                mobileMenuOpen && 'opacity-0'
-              )}
-            />
-            <span
-              className={cn(
-                'w-6 h-0.5 bg-text-primary transition-all duration-300 origin-center',
-                mobileMenuOpen && '-rotate-45 -translate-y-2'
-              )}
-            />
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-        </div>
-      </header>
+        </nav>
+      </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer (Brutalist Overlay) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-bg-base flex flex-col items-center justify-center md:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: [0.25, 0, 0.1, 1] }}
+            className="fixed inset-x-0 top-14 z-40 bg-white border-b border-gray-200 px-6 py-8 flex flex-col gap-6 md:hidden shadow-lg"
           >
-            <div className="flex flex-col items-center gap-8">
-              {navItems.map((item, i) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  onClick={() => scrollTo(item.id)}
-                  className={cn(
-                    'font-display text-4xl font-black tracking-tighter',
-                    activeSection === item.id ? 'text-accent-primary' : 'text-text-primary'
-                  )}
+            <div className="flex flex-col gap-4">
+              {NAV_ITEMS.map((item, idx) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between py-2 border-b border-gray-100 font-mono text-xs uppercase tracking-wider text-black hover:text-gray-500 transition-colors"
                 >
-                  {item.label}
-                </motion.button>
+                  <span>{item.label}</span>
+                  <span className="text-gray-400 text-[10px]">0{idx + 1}</span>
+                </a>
               ))}
-              
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="mt-10 flex gap-6"
-              >
-                <a href={`https://${CONTENT.contact.linkedin}`} target="_blank" className="text-text-primary font-body font-bold">LinkedIn</a>
-                <a href={`https://${CONTENT.contact.github}`} target="_blank" className="text-text-primary font-body font-bold">GitHub</a>
-              </motion.div>
+            </div>
+
+            <div className="pt-4 flex items-center justify-between border-t border-gray-100 font-mono text-[10px] tracking-wider uppercase text-gray-400">
+              <span>STATUS</span>
+              <span className="text-black font-medium">AVAILABLE / REMOTE</span>
             </div>
           </motion.div>
         )}
