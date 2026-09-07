@@ -17,7 +17,7 @@
   - **Email**: [abdullahbutt3579@gmail.com](mailto:abdullahbutt3579@gmail.com)
   - **LinkedIn**: [linkedin.com/in/muhammadabdullahbutt](https://linkedin.com/in/muhammadabdullahbutt)
   - **GitHub**: [github.com/Abdullahs-git](https://github.com/Abdullahs-git)
-  - **Website**: [abdullahbutt.dev](https://abdullahbutt.dev)
+  - **Website**: [muhammadabdullahbutt.me](https://muhammadabdullahbutt.me)
 
 ---
 

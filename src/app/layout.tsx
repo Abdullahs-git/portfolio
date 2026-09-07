@@ -16,6 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://muhammadabdullahbutt.me"),
   title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer & Researcher",
   description:
     "Senior Full Stack AI Engineer & Published Researcher. Architecting scalable platforms and parameter-efficient deepfake detection frameworks. Published in Springer Nature.",
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
     title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer",
     description:
       "Published AI researcher. Architecting scalable platforms and parameter-efficient detection frameworks.",
+    url: "https://muhammadabdullahbutt.me",
     type: "website",
     locale: "en_US",
   },
@@ -68,7 +70,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Muhammad Abdullah Butt",
               jobTitle: "Senior Full-Stack AI Engineer",
-              url: "https://abdullahbutt.dev",
+              url: "https://muhammadabdullahbutt.me",
               sameAs: [
                 "https://linkedin.com/in/muhammadabdullahbutt",
                 "https://github.com/Abdullahs-git",
