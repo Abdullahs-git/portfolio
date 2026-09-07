@@ -13,7 +13,6 @@
     "@hookform/resolvers": "^5.8.0",
     "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
-    "@studio-freight/react-lenis": "^0.0.47",
     "@types/three": "^0.185.4",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
