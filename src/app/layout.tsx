@@ -40,12 +40,21 @@ export const metadata: Metadata = {
     url: "https://muhammadabdullahbutt.me",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://muhammadabdullahbutt.me/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer & Researcher",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer",
     description:
       "Published AI researcher. Architecting scalable platforms and parameter-efficient detection frameworks.",
+    images: ["https://muhammadabdullahbutt.me/og-image.jpg"],
   },
 };
 

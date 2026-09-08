@@ -18,6 +18,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 export const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const {
     register,
@@ -29,11 +30,23 @@ export const ContactSection = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Simulated async transmission
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log('Contact transmission received:', data);
-    setSubmitted(true);
-    reset();
+    setServerError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        setServerError(json.error ?? 'Something went wrong. Please try again or use direct email.');
+        return;
+      }
+      setSubmitted(true);
+      reset();
+    } catch {
+      setServerError('Network error. Please try again or use direct email.');
+    }
   };
 
   return (
@@ -200,6 +213,13 @@ export const ContactSection = () => {
                         </span>
                       )}
                     </div>
+
+                    {/* Server Error */}
+                    {serverError && (
+                      <p role="alert" className="font-mono text-[10px] text-red-400 tracking-wider border border-red-800 px-3 py-2 bg-red-950/30">
+                        {serverError}
+                      </p>
+                    )}
 
                     {/* Submit Button */}
                     <button
