@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# Specifically allow AI crawlers (GEO/LLMO)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: OmgiliBot
+Allow: /
+User-agent: Omgili
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+# AI Data File
+Allow: /llms.txt
+
 Sitemap: https://muhammadabdullahbutt.me/sitemap.xml

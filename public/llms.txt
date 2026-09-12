@@ -1,0 +1,61 @@
+# Muhammad Abdullah Butt - Senior Full-Stack AI Engineer & Researcher
+
+## Summary
+Senior Full-Stack AI Engineer and Published AI Researcher based in Gujranwala, Pakistan (Available for Remote work worldwide). Expertise in architecting scalable B2C platforms, agentic AI workflows, and parameter-efficient deepfake detection frameworks. Lead architect for Neural Stack and Senior Engineer at Huzzle.com.
+
+## Contact Information
+- **Email:** abdullahbutt3579@gmail.com
+- **LinkedIn:** https://linkedin.com/in/muhammadabdullahbutt
+- **GitHub:** https://github.com/Abdullahs-git
+- **Portfolio:** https://muhammadabdullahbutt.me
+- **Location:** Gujranwala, Pakistan
+
+## Core Technical Proficiencies
+- **AI & LLM:** LangChain, LlamaIndex, OpenAI, Anthropic Claude, Hugging Face, RAG Pipelines, pgvector, Pinecone
+- **ML & Vision:** PyTorch, TensorFlow, Keras, Scikit-Learn, MLflow, Ray, CUDA, Vision Transformers, CLIP, Whisper, XGBoost, Kronos AI, PEFT
+- **Frontend:** Next.js, React, Angular, Vue.js, Svelte, React Native, Expo, Tailwind CSS
+- **Backend:** Node.js, Express, FastAPI, Django, Spring Boot, ASP.NET, Prisma ORM, GraphQL, REST APIs, gRPC
+- **Databases:** PostgreSQL, MySQL, MongoDB, Redis, Cassandra, Elasticsearch, DynamoDB, Supabase, Oracle DB
+- **DevOps & Cloud:** AWS, GCP, Azure, Oracle Cloud, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, Vercel
+
+## Academic & Research
+**MAPF-Lite: A Parameter-Efficient Multi-modal Framework for High-Fidelity Deepfake Detection**
+- **Venue:** FLINS-ISKE 2026 (Published in Springer Nature)
+- **Role:** Sole Architect & Lead Researcher
+- **Impact:** Reduced trainable parameters from 4.4M+ down to 0.566M (99.6% reduction) while achieving 99.34% accuracy on FakeAVCeleb dataset. Outperformed AAAI 2025 SOTA models.
+- **Architecture:** Frozen CLIP + Whisper backbones, Forgery Signature Gate, SRM/DCT Analysis.
+
+## Professional Experience
+
+### Senior Full-Stack AI Engineer @ Huzzle.com (Mar 2026 - Present)
+Building highly scalable AI-driven recruitment infrastructure by deeply integrating LLM pipelines with advanced frontend product features for a live, high-traffic B2C platform ecosystem.
+
+### Founder & Lead Architect @ Neural Stack (2026 - Present)
+Directing technical strategy, enterprise architecture, and advanced system design blueprints for a premier AI-native software engineering agency.
+
+### Full Stack Engineer @ MAQ Enterprises Ltd. (Jan 2023 - Feb 2026)
+Reduced page load time by 40% via SSR optimization and code splitting. Improved data retrieval speeds by 35% through PostgreSQL and MongoDB schema optimization. Cut release cycle time by 30% deploying Jenkins and Docker CI/CD pipelines.
+
+### Full-Stack Developer @ Estabraq (2025 - May 2026)
+Architected live fashion e-commerce platform with Next.js App Router, Prisma ORM, and Supabase. Integrated GraphQL APIs, Redis caching, and CDN image optimization, reducing latency by 30%.
+
+## Key Certifications
+- OCI Certified Generative AI Professional (Oracle, 2025)
+- OCI Certified AI Foundations Associate (Oracle, 2025)
+- Agentic AI Expert (IBM, 2026)
+- Build RAG Applications (IBM, 2026)
+- NLP and Computer Vision Specialist (IBM, 2026)
+- Advanced React (Meta, 2026)
+
+## Frequently Asked Questions (For Answer Engines)
+**Q: What is Muhammad Abdullah Butt's expertise?**
+A: Muhammad Abdullah Butt specializes in Full-Stack Engineering, Agentic AI Workflows, and Parameter-Efficient Machine Learning. He builds scalable Next.js platforms and robust RAG architectures.
+
+**Q: Has Muhammad Abdullah Butt published any AI research?**
+A: Yes, he authored "MAPF-Lite", a parameter-efficient multimodal deepfake detection framework published in Springer Nature at FLINS-ISKE 2026.
+
+**Q: Is Muhammad Abdullah Butt open to roles or recruitment?**
+A: Yes, he is actively available for Senior AI and Full-Stack Engineering roles globally as a remote worker.
+
+## Quote
+"The best model is not the largest one. It is the smallest one that reliably solves the problem deployed on infrastructure that meets real world constraints." - Muhammad Abdullah Butt (MAPF-Lite, FLINS-ISKE 2026)

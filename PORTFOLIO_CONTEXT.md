@@ -159,7 +159,7 @@
 | **Generative AI & LLM Systems** | LangChain, LlamaIndex, OpenAI GPT APIs, Anthropic Claude, Hugging Face Transformers, RAG Architectures, pgvector, Pinecone, Prompt Engineering, Agentic Tool Calling |
 | **Machine Learning & Vision** | PyTorch, TensorFlow, Keras, Scikit-Learn, MLflow, Ray, CUDA, Vision Transformers (ViT), CLIP, Whisper, XGBoost, Parameter-Efficient Fine-Tuning (PEFT, LoRA), SRM/DCT Analysis |
 | **Frontend Engineering** | Next.js (App Router / Pages), React 19, React Native, Expo, Angular, Vue.js, Svelte, Redux Toolkit, Tailwind CSS, Material UI, Framer Motion, Lenis, Webpack, Vite |
-| **Backend Engineering** | Node.js, Express, NestJS, FastAPI, Django, Spring Boot, ASP.NET, Go Fiber, Prisma ORM, GraphQL (Apollo), RESTful APIs, gRPC, WebSockets |
+| **Backend Engineering** | Node.js, Express, FastAPI, Django, Spring Boot, ASP.NET, Prisma ORM, GraphQL (Apollo), RESTful APIs, gRPC, WebSockets |
 | **Databases & Caching** | PostgreSQL, MySQL, MongoDB, Redis, Cassandra, Elasticsearch, DynamoDB, Supabase, Oracle Database |
 | **DevOps, Cloud & Infrastructure** | Docker, Kubernetes, Terraform (IaC), AWS (EC2, S3, Lambda, RDS), Google Cloud Platform (GCP), Microsoft Azure, Oracle Cloud Infrastructure (OCI), Jenkins, GitHub Actions, GitLab CI, Ansible, Prometheus, Grafana, Nginx, Apache Kafka, RabbitMQ, Vercel, Railway |
 

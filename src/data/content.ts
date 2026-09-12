@@ -274,7 +274,7 @@ export const CONTENT: ContentData = {
     "AI & LLM": ["LangChain", "LlamaIndex", "OpenAI", "Anthropic Claude", "Hugging Face", "RAG Pipelines", "pgvector", "Pinecone"],
     "ML & Vision": ["PyTorch", "TensorFlow", "Keras", "Scikit-Learn", "MLflow", "Ray", "CUDA", "Vision Transformers", "CLIP", "Whisper", "XGBoost", "Kronos AI", "PEFT"],
     "Frontend": ["Next.js", "React", "Angular", "Vue.js", "Svelte", "React Native", "Expo", "Redux", "Webpack", "Vite", "Tailwind CSS", "Material UI", "HTML", "CSS"],
-    "Backend": ["Node.js", "Express", "NestJS", "FastAPI", "Django", "Spring Boot", "ASP.NET", "Go Fiber", "Prisma ORM", "GraphQL", "REST APIs", "gRPC", "Apollo"],
+    "Backend": ["Node.js", "Express", "FastAPI", "Django", "Spring Boot", "ASP.NET", "Prisma ORM", "GraphQL", "REST APIs", "gRPC", "Apollo"],
     "Databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Cassandra", "Elasticsearch", "DynamoDB", "Supabase", "Oracle DB"],
     "DevOps & Cloud": ["AWS", "GCP", "Azure", "Oracle Cloud", "Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "GitLab CI", "Ansible", "Prometheus", "Grafana", "Nginx", "Apache Kafka", "RabbitMQ", "CI/CD", "Vercel", "Railway"],
   },
