@@ -13,7 +13,7 @@ const nextConfig = {
 
   // Enable experimental optimizations
   experimental: {
-    optimizePackageImports: ['react-icons', 'lucide-react', 'framer-motion'],
+    optimizePackageImports: ['react-icons', 'lucide-react'],
   },
 
   async headers() {

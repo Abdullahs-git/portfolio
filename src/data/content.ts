@@ -49,7 +49,7 @@ export interface ExperienceItem {
   company: string;
   location: string;
   duration: string;
-  description: string;
+  description?: string;
   bullets?: ExperienceBullet[];
 }
 
@@ -102,20 +102,18 @@ export const CONTENT: ContentData = {
   hero: {
     line1: "ENGINEERING",
     line2: "INTELLIGENCE",
-    summary: "Senior Full Stack AI Engineer & Researcher. Architecting scalable platforms and parameter-efficient deepfake detection frameworks.",
+    summary: "Full Stack Engineer and AI Researcher with 3+ years of production experience building scalable web and mobile platforms and LLM-powered systems.",
     status: "AVAILABLE / REMOTE",
   },
 
   research: {
     primary: {
       title: "MAPF-Lite",
-      subtitle: "A Parameter-Efficient Multi-modal Framework for High-Fidelity Deepfake Detection",
-      venue: "FLINS-ISKE 2026",
-      publisher: "Springer Nature",
-      role: "Sole Architect & Lead Researcher",
-      pages: "pp 455–474",
-      date: "First Online: 09 July 2026",
-      architecture: "Frozen CLIP + Whisper backbones, Forgery Signature Gate, SRM/DCT Analysis, Method-Aware Dynamic Prompting, XAI heatmaps. Outperformed AAAI 2025 state-of-the-art (4.4M params) using 99.6% fewer parameters.",
+      subtitle: "A Parameter-Efficient Multimodal Framework for High-Fidelity Deepfake Detection",
+      venue: "FLINS-ISKE Journal, 2026 (Published)",
+      publisher: "Springer Nature Proceedings Volume",
+      role: "Sole architect and lead researcher",
+      architecture: "Frozen CLIP + Whisper backbones, Forgery Signature Gate, SRM/DCT Analysis, Method-Aware Dynamic Prompting, XAI heatmaps. Outperformed AAAI 2025 state-of-the-art using 99.6% fewer parameters.",
       metrics: [
         { value: "99.34%", label: "ACCURACY", sublabel: "FakeAVCeleb" },
         { value: "99.84%", label: "AUC", sublabel: "FakeAVCeleb" },
@@ -140,11 +138,19 @@ export const CONTENT: ContentData = {
   projects: {
     live: [
       {
+        title: "Pointr",
+        category: "Livestock Management Platform (Web + Mobile)",
+        url: "livestock.pointrsolutions.co.za",
+        stack: ["Expo", "React Native", "Django", "JWT", "Android", "iOS", "EAS"],
+        description: "Built and published a full-stack livestock management ecosystem: web dashboard + Expo / React Native mobile app (Android + iOS) with real-time sync via Django backend and JWT auth. Engineered offline-first two-phase architecture: data captured in the field without connectivity, uploaded on mobile data — zero data loss across 100% of sync cycles in production. Integrated XR5000 weigh-scale via Wi-Fi, parsing ADI XML sessions.",
+        confidential: false,
+      },
+      {
         title: "Estabraq",
         category: "Fashion E-Commerce Platform",
         url: "estabraq.pk",
         stack: ["Next.js", "TypeScript", "Supabase", "Prisma ORM", "GraphQL", "Redis"],
-        description: "Live production platform delivering sub-2-second load times. GraphQL APIs combined with Redis caching reduced latency by 30%. Automated Docker CI/CD environments cut release cycles by 25%.",
+        description: "Live production platform with sub-2-second load times, real-time inventory, and secure authentication. GraphQL APIs + Redis caching reduced client-server latency by 30%; CDN image optimization cut bounce rates measurably.",
         confidential: false,
       },
       {
@@ -152,15 +158,15 @@ export const CONTENT: ContentData = {
         category: "PDF SaaS",
         url: "mypdfmate.com",
         stack: ["Next.js", "FastAPI", "AI Processing"],
-        description: "Live production SaaS for advanced PDF processing and AI-powered document workflows. AI-driven document analysis and transformation pipelines wrapped in a clean, optimized interface.",
+        description: "Live production SaaS for PDF processing and AI-powered document workflows.",
         confidential: false,
       },
       {
         title: "Khushi Motors",
-        category: "Automotive Marketplace",
+        category: "Automotive Platform",
         url: "khushimotors.com",
-        stack: ["Next.js", "Full Stack", "PostgreSQL"],
-        description: "Live automotive marketplace with comprehensive product catalogue, dynamic filtering, and inquiry management. Production-grade search and secure lead capture.",
+        stack: ["Next.js", "Full Stack"],
+        description: "Live automotive marketplace with full product catalogue, filtering, and inquiry management.",
         confidential: false,
       },
     ],
@@ -168,38 +174,24 @@ export const CONTENT: ContentData = {
       {
         title: "DeployGenius",
         category: "AI Chatbot SaaS",
-        stack: ["FastAPI", "LangChain", "OpenAI GPT-4", "Next.js", "Redis", "PostgreSQL", "Stripe"],
-        description: "Multi-tenant AI SaaS with RAG grounding, multi-session agentic workflows, and complete Stripe subscription lifecycle management. Optimized API costs by 25% via token consumption tuning.",
+        stack: ["FastAPI", "LangChain", "OpenAI GPT-4", "Next.js 14", "Redis", "PostgreSQL", "Stripe"],
+        description: "Multi-tenant AI SaaS with RAG grounding, multi-session chat management, and agentic workflows. Stripe subscription lifecycle integration: tiered pricing, webhooks, secure checkout; optimized API costs by 25%.",
         confidential: true,
       },
       {
         title: "LingumedAI",
         category: "Clinical AI for Nurses",
         stack: ["React", "FastAPI", "LangChain", "RAG", "pgvector", "OpenAI API"],
-        description: "AI clinical assistant with real-time diagnostic guidance and drug interaction checks. Domain-specific RAG pipeline across medical literature with role-based access control and audit logging.",
+        description: "AI clinical assistant giving nurses real-time access to diagnostic guidance and drug interaction checks, reducing physician dependency in critical moments. Domain-specific RAG pipeline ingesting medical literature and clinical guidelines into pgvector; hallucination-resistant responses with explicit uncertainty escalation.",
         confidential: true,
       },
     ],
     other: [
       {
-        title: "Pointr",
-        category: "Livestock Management (Web + Mobile)",
-        url: "livestock.pointrsolutions.co.za",
-        stack: ["Expo", "React Native", "Django", "JWT", "Android", "iOS", "EAS"],
-        description: "Full-stack livestock management ecosystem. Offline-first two-phase architecture with zero data loss. XR5000 weigh-scale integration via Wi-Fi with ADI XML parsing.",
-      },
-      {
         title: "ForexAI",
-        category: "Mobile Trading & Prediction",
+        category: "Mobile Trading & Prediction App",
         stack: ["React Native", "XGBoost", "Kronos AI", "Python"],
-        description: "Forex education app with AI market prediction. Fine-tuned XGBoost + Kronos AI ensemble on historical price data with in-app learning curriculum.",
-      },
-      {
-        title: "Image Converter",
-        category: "SaaS Application",
-        url: "pixelconvert.app",
-        stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "WebAssembly"],
-        description: "Lightning-fast image conversion and optimization SaaS with drag-and-drop interface and client-side processing.",
+        description: "Forex education app with AI market prediction; fine-tuned XGBoost + Kronos AI ensemble on historical price data. In-app learning curriculum paired with live prediction signals for retail traders.",
       },
     ],
   },
@@ -209,81 +201,67 @@ export const CONTENT: ContentData = {
       role: "Senior Full-Stack AI Engineer",
       company: "Huzzle.com",
       location: "London, UK (Remote)",
-      duration: "Mar 2026 — Present",
-      description: "Building highly scalable AI-driven recruitment infrastructure by deeply integrating LLM pipelines with advanced frontend product features for a live, high-traffic B2C platform ecosystem.",
+      duration: "Mar 2026 – Present",
+      description: "Building AI-driven recruitment infrastructure integrating LLM pipelines with full-stack product features for a live, high-traffic B2C platform",
       bullets: [
-        { metric: "AI PLATFORM", text: "Architecting scalable recruitment infrastructure integrating LLM pipelines with reactive frontend applications." },
-        { metric: "AGENTIC WORKFLOWS", text: "Building automated candidate semantic matching, RAG-grounded profile evaluations, and smart parsing." },
-        { metric: "HIGH-TRAFFIC B2C", text: "Optimizing client-facing user experiences to maintain sub-100ms response targets under peak traffic." },
-      ],
-    },
-    {
-      role: "Founder & Lead Architect",
-      company: "Neural Stack",
-      location: "Remote",
-      duration: "2026 — Present",
-      description: "Directing technical strategy, enterprise architecture, and advanced system design blueprints for a premier AI-native software engineering agency.",
-      bullets: [
-        { metric: "AI STRATEGY", text: "Directing technical roadmaps, enterprise AI blueprints, and high-performance system designs." },
-        { metric: "ENTERPRISE RAG", text: "Delivering private LLM deployments, pgvector knowledge grounding, and fine-tuned agent architectures." },
-        { metric: "SYSTEM SCALING", text: "Advising engineering teams on cost-effective model routing and distributed cloud infrastructure." },
+        { text: "Building AI-driven recruitment infrastructure integrating LLM pipelines with full-stack product features for a live, high-traffic B2C platform" }
       ],
     },
     {
       role: "Full Stack Engineer",
       company: "MAQ Enterprises Ltd.",
       location: "Rawalpindi, Pakistan",
-      duration: "Jan 2023 — Feb 2026",
-      description: "Reduced page load time by 40% via SSR optimization and code splitting. Improved data retrieval speeds by 35% through PostgreSQL and MongoDB schema optimization. Cut release cycle time by 30% deploying Jenkins and Docker CI/CD pipelines. Reduced production bug incidence by 25% using Cypress and Jest. Provisioned infrastructure-as-code using Terraform.",
+      duration: "Jan 2023 – Feb 2026",
+      description: "Engineered production web applications with Next.js and Node.js; reduced page load time by 40% via SSR optimization and code splitting",
       bullets: [
-        { metric: "40% REDUCTION", text: "Page load time cut via Next.js SSR optimization, dynamic code splitting, and bundle trimming." },
-        { metric: "35% SPEEDUP", text: "Database retrieval acceleration achieved through PostgreSQL relational schema and MongoDB index tuning." },
-        { metric: "30% FASTER", text: "Release cycle time cut by deploying automated Jenkins and Docker CI/CD pipelines." },
-        { metric: "25% FEWER BUGS", text: "Production bug incidence reduced using rigorous Cypress end-to-end and Jest unit test suites." },
-        { metric: "TERRAFORM IAC", text: "Provisioned automated cloud infrastructure and reproducible environments with Infrastructure as Code." },
+        { metric: "40% LOAD TIME CUT", text: "Engineered production web applications with Next.js and Node.js; reduced page load time by 40% via SSR optimization and code splitting" },
+        { metric: "35% SPEEDUP", text: "Designed RESTful APIs and optimized PostgreSQL and MongoDB schemas, improving data retrieval speed by 35% on critical endpoints" },
+        { metric: "30% FASTER", text: "Implemented Jenkins and Docker CI/CD pipelines, cutting release cycle time by 30%" },
+        { metric: "25% FEWER BUGS", text: "Automated end-to-end testing with Cypress and Jest, reducing production bug incidence by 25%" },
+        { metric: "IAC", text: "Mentored 3+ junior developers through code reviews; provisioned infrastructure-as-code using Terraform" },
       ],
     },
     {
       role: "AI Researcher",
       company: "GIFT University",
       location: "Gujranwala, Pakistan",
-      duration: "2024 — 2026",
-      description: "Designed MAPF-Lite, published in peer-reviewed journal and Springer Nature proceedings. Reduced trainable parameters by 99.6% through PEFT while maintaining SOTA accuracy. Achieved 30% detection latency reduction via lightweight attention mechanisms for edge deployment.",
+      duration: "2024 – 2026",
+      description: "Designed MAPF-Lite multimodal architecture (CLIP + Whisper + ViT) for deepfake detection, published in peer-reviewed journal and Springer Nature proceedings",
       bullets: [
-        { metric: "SPRINGER NATURE", text: "Conceived, authored, and published MAPF-Lite at FLINS-ISKE 2026 (Springer Nature proceedings)." },
-        { metric: "99.6% PARAMETER CUT", text: "Reduced trainable parameters from 4.4M+ down to 0.566M using PEFT while matching SOTA accuracy." },
-        { metric: "30% LATENCY CUT", text: "Engineered lightweight attention mechanisms and frequency-domain filters for real-time edge detection." },
+        { metric: "PUBLISHED", text: "Designed MAPF-Lite multimodal architecture (CLIP + Whisper + ViT) for deepfake detection, published in peer-reviewed journal and Springer Nature proceedings" },
+        { metric: "99.6% PEFT CUT", text: "Reduced trainable parameters by 99.6% while maintaining state-of-the-art accuracy through parameter-efficient fine-tuning (PEFT)" },
+        { metric: "30% LATENCY CUT", text: "Achieved 30% reduction in detection latency by developing lightweight attention mechanisms for edge deployment" },
       ],
     },
     {
       role: "Full-Stack Developer",
       company: "Estabraq",
       location: "Pakistan",
-      duration: "2025 — May 2026",
-      description: "Architected live fashion e-commerce platform with Next.js App Router, Prisma ORM, and Supabase. Integrated GraphQL APIs, Redis caching, and CDN image optimization, reducing latency by 30%. Automated deployments via Docker CI/CD, accelerating release cycles by 25%.",
+      duration: "2025 – May 2026",
+      description: "Architected live fashion e-commerce platform (estabraq.pk) with Next.js App Router, Prisma ORM, and Supabase; achieved sub-2-second load times in production",
       bullets: [
-        { metric: "SUB-2S LOADS", text: "Architected high-throughput fashion platform with Next.js App Router, Prisma ORM, and Supabase." },
-        { metric: "30% LATENCY CUT", text: "Integrated GraphQL APIs, Redis caching layers, and edge CDN asset optimization." },
-        { metric: "25% FASTER", text: "Accelerated release cycles and automated zero-downtime rollouts via Docker CI/CD pipelines." },
+        { metric: "SUB-2S LOADS", text: "Architected live fashion e-commerce platform (estabraq.pk) with Next.js App Router, Prisma ORM, and Supabase; achieved sub-2-second load times in production" },
+        { metric: "30% LATENCY CUT", text: "Integrated GraphQL APIs, Redis caching, and CDN image optimization, reducing server latency by 30%" },
+        { metric: "25% FASTER", text: "Automated deployment with Docker CI/CD, cutting release cycles by 25%" },
       ],
     },
   ],
 
   stack: {
-    "Languages": ["Python", "TypeScript", "JavaScript", "Java", "C++", "PHP"],
-    "AI & LLM": ["LangChain", "LlamaIndex", "OpenAI", "Anthropic Claude", "Hugging Face", "RAG Pipelines", "pgvector", "Pinecone"],
-    "ML & Vision": ["PyTorch", "TensorFlow", "Keras", "Scikit-Learn", "MLflow", "Ray", "CUDA", "Vision Transformers", "CLIP", "Whisper", "XGBoost", "Kronos AI", "PEFT"],
-    "Frontend": ["Next.js", "React", "Angular", "Vue.js", "Svelte", "React Native", "Expo", "Redux", "Webpack", "Vite", "Tailwind CSS", "Material UI", "HTML", "CSS"],
-    "Backend": ["Node.js", "Express", "FastAPI", "Django", "Spring Boot", "ASP.NET", "Prisma ORM", "GraphQL", "REST APIs", "gRPC", "Apollo"],
-    "Databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Cassandra", "Elasticsearch", "DynamoDB", "Supabase", "Oracle DB"],
-    "DevOps & Cloud": ["AWS", "GCP", "Azure", "Oracle Cloud", "Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "GitLab CI", "Ansible", "Prometheus", "Grafana", "Nginx", "Apache Kafka", "RabbitMQ", "CI/CD", "Vercel", "Railway"],
+    "AI & LLM": ["LangChain", "LlamaIndex", "OpenAI API", "Anthropic Claude", "RAG Pipelines", "Pinecone", "pgvector", "Agentic Workflows"],
+    "ML & Fintech AI": ["XGBoost", "Decision Trees", "Kronos AI", "Model Fine-Tuning", "Ensemble Modeling", "Time-Series Forecasting"],
+    "Computer Vision": ["PyTorch", "Vision Transformers", "CLIP", "Whisper", "PEFT", "Model Quantization", "Edge Deployment"],
+    "Frontend": ["Next.js", "React", "React Native", "Expo", "TypeScript", "Tailwind CSS", "GraphQL"],
+    "Backend": ["FastAPI", "Node.js", "Django", "Prisma ORM", "RESTful APIs", "Redis"],
+    "Databases": ["PostgreSQL", "MongoDB", "Supabase"],
+    "DevOps & Cloud": ["Docker", "Jenkins", "Terraform", "CI/CD", "EAS", "Vercel", "Railway", "Oracle Cloud", "AWS"],
   },
 
   education: {
     degree: "Bachelor of Science in Computer Science",
     institution: "GIFT University, Gujranwala, Pakistan",
-    dates: "Sep 2022 — Mar 2026",
-    thesis: "MAPF-Lite — published at FLINS-ISKE 2026 and included in Springer Nature proceedings volume.",
+    dates: "Sep 2022 – Mar 2026",
+    thesis: "MAPF-Lite — published at FLINS-ISKE 2026 and included in Springer Nature proceedings volume",
   },
 
   certifications: [
@@ -298,9 +276,8 @@ export const CONTENT: ContentData = {
   ],
 
   achievements: [
-    "AMD Developer Hackathon Act II Participant (Team Neural Stack)",
-    "Harvard HSIL Health Systems Hackathon Participant (GIFT University)",
-    "MAPF-Lite included in Springer Nature proceedings volume (FLINS-ISKE 2026)",
+    "Published MAPF-Lite at FLINS-ISKE 2026",
+    "Included in Springer Nature proceedings volume",
   ],
 
   quote: {
