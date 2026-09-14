@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { CONTENT } from '@/data/content';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 
 const ease = [0.25, 0, 0.1, 1] as [number, number, number, number];
 
@@ -21,7 +21,7 @@ export const HeroSection = () => {
             {CONTENT.hero.status}
           </span>
         </div>
-        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 font-medium">
           RESEARCHER &middot; FULL-STACK AI ENGINEER
         </span>
       </motion.div>
@@ -33,7 +33,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease }}
-            className="font-mono text-[11px] md:text-xs tracking-widest uppercase text-gray-400 mb-4"
+            className="font-mono text-[11px] md:text-xs tracking-widest uppercase text-gray-500 mb-4 font-medium"
           >
             MUHAMMAD ABDULLAH BUTT
           </motion.p>
@@ -60,10 +60,30 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease }}
-            className="font-mono text-[11px] md:text-xs text-gray-500 uppercase tracking-wider mt-8 max-w-2xl border-l-2 border-black pl-4"
+            className="font-sans text-sm md:text-base text-gray-700 tracking-wide mt-8 max-w-2xl border-l-2 border-black pl-4 leading-relaxed italic"
           >
             &ldquo;{CONTENT.quote.text}&rdquo;
           </motion.p>
+
+          {/* Download CV CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease }}
+            className="mt-8 flex items-center gap-4"
+          >
+            <a
+              href="/Muhammad_Abdullah_Butt_CV.pdf"
+              download="Muhammad_Abdullah_Butt_CV.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 font-mono text-xs tracking-wider uppercase font-semibold hover:bg-gray-800 transition-colors shadow-sm rounded-none"
+              aria-label="Download Curriculum Vitae PDF"
+            >
+              <Download className="w-4 h-4" />
+              <span>DOWNLOAD UPDATED CV</span>
+            </a>
+          </motion.div>
         </div>
       </div>
 
@@ -74,18 +94,18 @@ export const HeroSection = () => {
         transition={{ duration: 1, delay: 0.8, ease }}
         className="max-w-[1400px] mx-auto w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pt-6 border-t border-gray-200"
       >
-        <p className="font-sans text-sm md:text-base text-gray-500 max-w-xl leading-relaxed font-light">
+        <p className="font-sans text-sm md:text-base text-gray-700 max-w-xl leading-relaxed font-normal">
           {CONTENT.hero.summary}
         </p>
 
         <motion.a
           href="#research"
-          className="flex items-center gap-3 text-gray-400 hover:text-black transition-colors duration-500 group cursor-pointer"
+          className="flex items-center gap-3 text-gray-500 hover:text-black transition-colors duration-500 group cursor-pointer"
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           aria-label="Scroll down to research section"
         >
-          <span className="font-mono text-[10px] tracking-wider uppercase">Scroll to Research</span>
+          <span className="font-mono text-[10px] tracking-wider uppercase font-medium">Scroll to Research</span>
           <ArrowDown className="w-4 h-4 text-black group-hover:translate-y-0.5 transition-transform" />
         </motion.a>
       </motion.div>

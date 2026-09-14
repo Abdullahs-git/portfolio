@@ -138,11 +138,27 @@ export const CONTENT: ContentData = {
   projects: {
     live: [
       {
+        title: "DeepShield",
+        category: "Deepfake Detection Web Platform",
+        url: "deepshield.video",
+        stack: ["Next.js", "FastAPI", "PyTorch", "CLIP", "Whisper", "Computer Vision", "Deep Learning"],
+        description: "Production web platform applying the published MAPF-Lite multimodal architecture to real-time deepfake detection for uploaded video and audio content. Features XAI-based forensic heatmaps and accessible upload-and-analyze workflow.",
+        confidential: false,
+      },
+      {
+        title: "ImageStudio",
+        category: "Privacy-First Online Image Toolkit",
+        url: "imagestudio.app",
+        stack: ["Next.js", "Image Processing", "Headless Browser Rendering", "Cloud Storage APIs"],
+        description: "Account-free image utility platform with compression, resizing, canvas photo editor, meme generator, configurable watermarking, HTML-to-image rendering, and batch ZIP export.",
+        confidential: false,
+      },
+      {
         title: "Pointr",
         category: "Livestock Management Platform (Web + Mobile)",
         url: "livestock.pointrsolutions.co.za",
         stack: ["Expo", "React Native", "Django", "JWT", "Android", "iOS", "EAS"],
-        description: "Built and published a full-stack livestock management ecosystem: web dashboard + Expo / React Native mobile app (Android + iOS) with real-time sync via Django backend and JWT auth. Engineered offline-first two-phase architecture: data captured in the field without connectivity, uploaded on mobile data — zero data loss across 100% of sync cycles in production. Integrated XR5000 weigh-scale via Wi-Fi, parsing ADI XML sessions.",
+        description: "Built and published a full-stack livestock management ecosystem: web dashboard + Expo / React Native mobile app (Android + iOS) with real-time sync via Django backend and JWT auth. Offline-first two-phase sync architecture with XR5000 scale integration.",
         confidential: false,
       },
       {
@@ -150,7 +166,7 @@ export const CONTENT: ContentData = {
         category: "Fashion E-Commerce Platform",
         url: "estabraq.pk",
         stack: ["Next.js", "TypeScript", "Supabase", "Prisma ORM", "GraphQL", "Redis"],
-        description: "Live production platform with sub-2-second load times, real-time inventory, and secure authentication. GraphQL APIs + Redis caching reduced client-server latency by 30%; CDN image optimization cut bounce rates measurably.",
+        description: "Live production platform with sub-2-second load times, real-time inventory, and secure authentication. GraphQL APIs + Redis caching reduced client-server latency by 30%.",
         confidential: false,
       },
       {
@@ -158,7 +174,7 @@ export const CONTENT: ContentData = {
         category: "PDF SaaS",
         url: "mypdfmate.com",
         stack: ["Next.js", "FastAPI", "AI Processing"],
-        description: "Live production SaaS for PDF processing and AI-powered document workflows.",
+        description: "Live production SaaS platform for PDF processing and AI-powered document workflows.",
         confidential: false,
       },
       {
@@ -176,14 +192,14 @@ export const CONTENT: ContentData = {
         category: "AI Chatbot SaaS",
         stack: ["FastAPI", "LangChain", "OpenAI GPT-4", "Next.js 14", "Redis", "PostgreSQL", "Stripe"],
         description: "Multi-tenant AI SaaS with RAG grounding, multi-session chat management, and agentic workflows. Stripe subscription lifecycle integration: tiered pricing, webhooks, secure checkout; optimized API costs by 25%.",
-        confidential: true,
+        confidential: false,
       },
       {
         title: "LingumedAI",
         category: "Clinical AI for Nurses",
         stack: ["React", "FastAPI", "LangChain", "RAG", "pgvector", "OpenAI API"],
-        description: "AI clinical assistant giving nurses real-time access to diagnostic guidance and drug interaction checks, reducing physician dependency in critical moments. Domain-specific RAG pipeline ingesting medical literature and clinical guidelines into pgvector; hallucination-resistant responses with explicit uncertainty escalation.",
-        confidential: true,
+        description: "AI clinical assistant giving nurses real-time access to diagnostic guidance and drug interaction checks, reducing physician dependency in critical moments. Domain-specific RAG pipeline ingesting medical literature into pgvector.",
+        confidential: false,
       },
     ],
     other: [
@@ -191,7 +207,8 @@ export const CONTENT: ContentData = {
         title: "ForexAI",
         category: "Mobile Trading & Prediction App",
         stack: ["React Native", "XGBoost", "Kronos AI", "Python"],
-        description: "Forex education app with AI market prediction; fine-tuned XGBoost + Kronos AI ensemble on historical price data. In-app learning curriculum paired with live prediction signals for retail traders.",
+        description: "Forex education app with AI market prediction; fine-tuned XGBoost + Kronos AI ensemble on historical price data. In-app learning curriculum paired with live prediction signals.",
+        confidential: false,
       },
     ],
   },
@@ -249,12 +266,13 @@ export const CONTENT: ContentData = {
 
   stack: {
     "AI & LLM": ["LangChain", "LlamaIndex", "OpenAI API", "Anthropic Claude", "RAG Pipelines", "Pinecone", "pgvector", "Agentic Workflows"],
-    "ML & Fintech AI": ["XGBoost", "Decision Trees", "Kronos AI", "Model Fine-Tuning", "Ensemble Modeling", "Time-Series Forecasting"],
-    "Computer Vision": ["PyTorch", "Vision Transformers", "CLIP", "Whisper", "PEFT", "Model Quantization", "Edge Deployment"],
-    "Frontend": ["Next.js", "React", "React Native", "Expo", "TypeScript", "Tailwind CSS", "GraphQL"],
-    "Backend": ["FastAPI", "Node.js", "Django", "Prisma ORM", "RESTful APIs", "Redis"],
-    "Databases": ["PostgreSQL", "MongoDB", "Supabase"],
-    "DevOps & Cloud": ["Docker", "Jenkins", "Terraform", "CI/CD", "EAS", "Vercel", "Railway", "Oracle Cloud", "AWS"],
+    "ML & Vision": ["PyTorch", "Vision Transformers (ViT)", "CLIP", "Whisper", "PEFT", "XGBoost", "Decision Trees", "Kronos AI", "Edge AI Deployment"],
+    "Frontend": ["Next.js", "React", "React Native", "Expo", "TypeScript", "JavaScript", "Tailwind CSS", "Bootstrap", "GraphQL"],
+    "Backend": ["Node.js", "Express", "FastAPI", "Django", "Go Fiber", "Prisma ORM", "RESTful APIs", "Redis", "BullMQ"],
+    "Databases & Cache": ["PostgreSQL", "MongoDB", "Supabase", "Redis", "Upstash"],
+    "Cloud & DevOps": ["Docker", "Jenkins", "Terraform", "CI/CD", "EAS", "Vercel", "Railway", "Oracle Cloud", "Azure", "AWS", "Cloudinary"],
+    "Messaging & Queues": ["RabbitMQ", "BullMQ"],
+    "Testing & Quality": ["Jest", "Cypress", "End-to-End Testing", "Unit Testing"],
   },
 
   education: {

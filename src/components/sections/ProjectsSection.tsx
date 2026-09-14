@@ -2,7 +2,7 @@
 import { CONTENT } from '@/data/content';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { SectionLabel } from '@/components/ui/SectionLabel';
-import { ArrowUpRight, Lock, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Cpu, Layers } from 'lucide-react';
 
 export const ProjectsSection = () => {
   return (
@@ -16,15 +16,15 @@ export const ProjectsSection = () => {
             <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
               [LIVE PRODUCTION ARCHITECTURE]
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-black font-medium">
-              3 ACTIVE DEPLOYMENTS
+            <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold">
+              {CONTENT.projects.live.length} ACTIVE DEPLOYMENTS
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
             {CONTENT.projects.live.map((project, i) => (
-              <FadeIn key={project.title} delay={i * 0.1} className="bg-white flex flex-col">
-                <div className="group p-8 md:p-10 flex flex-col h-full hover:bg-gray-50/70 transition-colors duration-300">
+              <FadeIn key={project.title} delay={i * 0.08} className="bg-white flex flex-col">
+                <div className="group p-8 md:p-10 flex flex-col h-full hover:bg-gray-50/80 transition-colors duration-300">
                   {/* Architectural Graphic Header */}
                   <div className="w-full aspect-[16/9] bg-black text-white p-6 flex flex-col justify-between mb-8 relative overflow-hidden group-hover:bg-gray-950 transition-colors">
                     <div className="flex items-center justify-between z-10">
@@ -32,7 +32,7 @@ export const ProjectsSection = () => {
                         SYS // 0{i + 1}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
                         <span className="font-mono text-[9px] tracking-wider uppercase text-white">LIVE</span>
                       </div>
                     </div>
@@ -52,7 +52,7 @@ export const ProjectsSection = () => {
                       <h3 className="font-sans text-xl md:text-2xl font-bold tracking-tight text-black">
                         {project.title}
                       </h3>
-                      <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400 mt-1 block">
+                      <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 mt-1 block font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -62,7 +62,7 @@ export const ProjectsSection = () => {
                         href={`https://${project.url}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1 font-mono text-[10px] tracking-wider uppercase text-gray-400 hover:text-black border-b border-gray-200 hover:border-black pb-0.5 transition-colors"
+                        className="flex items-center gap-1 font-mono text-[10px] tracking-wider uppercase text-gray-500 hover:text-black border-b border-gray-300 hover:border-black pb-0.5 transition-colors"
                         aria-label={`Visit ${project.title} at ${project.url}`}
                       >
                         Visit
@@ -71,7 +71,7 @@ export const ProjectsSection = () => {
                     )}
                   </div>
 
-                  <p className="font-sans text-sm text-gray-500 leading-relaxed font-light mb-8 flex-1">
+                  <p className="font-sans text-sm text-gray-700 leading-relaxed font-normal mb-8 flex-1">
                     {project.description}
                   </p>
 
@@ -79,7 +79,7 @@ export const ProjectsSection = () => {
                     {project.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="font-mono text-[9px] tracking-wider uppercase text-gray-500 bg-gray-50 border border-gray-200 px-2 py-0.5"
+                        className="font-mono text-[9px] tracking-wider uppercase text-gray-700 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-sm"
                       >
                         {tech}
                       </span>
@@ -91,56 +91,49 @@ export const ProjectsSection = () => {
           </div>
         </div>
 
-        {/* 2. Confidential / Enterprise AI Systems */}
+        {/* 2. Enterprise & AI Systems (Clear, Unblocked Cards) */}
         <div className="mt-16">
           <div className="mb-4 flex items-center justify-between">
             <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
-              [CONFIDENTIAL // PROPRIETARY ENTERPRISE AI]
+              [ENTERPRISE &amp; AI INFRASTRUCTURE]
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500">
-              NDA PROTECTED
+            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-600 font-medium">
+              HIGH-IMPACT AI SYSTEMS
             </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-gray-200 border border-gray-200">
             {CONTENT.projects.confidential.map((project, i) => (
-              <FadeIn key={project.title} delay={0.2 + i * 0.1} className="bg-white">
-                <div className="relative p-8 md:p-12 h-full flex flex-col justify-between overflow-hidden">
-                  {/* Frosted overlay */}
-                  <div className="absolute inset-0 confidential-overlay z-10 flex flex-col items-center justify-center text-center p-8">
-                    <div className="p-3 bg-black text-white mb-4">
-                      <Lock className="w-4 h-4" />
-                    </div>
-                    <span className="font-mono text-xs tracking-widest uppercase text-black font-semibold mb-1">
-                      CONFIDENTIAL / NDA RESTRICTED
-                    </span>
-                    <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 max-w-sm leading-relaxed">
-                      Proprietary AI Architecture. Verified production metrics available upon direct request.
-                    </span>
-                  </div>
-
-                  {/* Underlying structured info */}
-                  <div className="opacity-25 select-none filter blur-[1px]">
+              <FadeIn key={project.title} delay={0.1 + i * 0.1} className="bg-white">
+                <div className="p-8 md:p-12 h-full flex flex-col justify-between hover:bg-gray-50/80 transition-colors duration-300">
+                  <div>
                     <div className="flex justify-between items-start mb-4">
                       <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Cpu className="w-4 h-4 text-black" />
+                          <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 font-semibold">
+                            ENTERPRISE AI
+                          </span>
+                        </div>
                         <h3 className="font-sans text-2xl font-bold tracking-tight text-black">
                           {project.title}
                         </h3>
-                        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400 block mt-1">
+                        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 block mt-1 font-medium">
                           {project.category}
                         </span>
                       </div>
                     </div>
-                    <p className="font-sans text-sm text-gray-500 leading-relaxed font-light mb-6">
+                    <p className="font-sans text-sm text-gray-700 leading-relaxed font-normal mb-8">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.stack.map((tech) => (
-                        <span key={tech} className="font-mono text-[9px] tracking-wider uppercase text-gray-400 border border-gray-200 px-2 py-0.5">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 pt-6 border-t border-gray-100">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="font-mono text-[9px] tracking-wider uppercase text-gray-700 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-sm">
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </FadeIn>
@@ -152,23 +145,27 @@ export const ProjectsSection = () => {
         <div className="mt-16">
           <div className="mb-4 flex items-center justify-between">
             <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
-              [SPECIALIZED & APPLIED SYSTEMS]
+              [SPECIALIZED &amp; APPLIED SYSTEMS]
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500">
               MOBILE &middot; FINTECH &middot; CLIENT UTILITY
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
             {CONTENT.projects.other.map((project, i) => (
-              <FadeIn key={project.title} delay={0.3 + i * 0.08} className="bg-white flex flex-col">
-                <div className="p-8 flex flex-col h-full group hover:bg-gray-50/70 transition-colors duration-300">
+              <FadeIn key={project.title} delay={0.2 + i * 0.08} className="bg-white flex flex-col">
+                <div className="p-8 flex flex-col h-full group hover:bg-gray-50/80 transition-colors duration-300">
                   <div className="flex justify-between items-start mb-3">
                     <div>
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <Layers className="w-3.5 h-3.5 text-gray-400" />
+                        <span className="font-mono text-[9px] tracking-wider uppercase text-gray-400">APPLIED</span>
+                      </div>
                       <h3 className="font-sans text-lg font-bold tracking-tight text-black">
                         {project.title}
                       </h3>
-                      <span className="font-mono text-[9px] tracking-wider uppercase text-gray-400 mt-0.5 block">
+                      <span className="font-mono text-[9px] tracking-wider uppercase text-gray-500 mt-0.5 block font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -185,14 +182,14 @@ export const ProjectsSection = () => {
                     )}
                   </div>
 
-                  <p className="font-sans text-sm text-gray-500 leading-relaxed font-light mb-6 flex-1">
+                  <p className="font-sans text-sm text-gray-700 leading-relaxed font-normal mb-6 flex-1">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-1 mt-auto pt-4 border-t border-gray-100">
-                    {project.stack.map((tech, tIdx) => (
-                      <span key={tech} className="font-mono text-[9px] tracking-wider uppercase text-gray-400">
-                        {tech}{tIdx < project.stack.length - 1 ? ' ·' : ''}
+                  <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-gray-100">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="font-mono text-[9px] tracking-wider uppercase text-gray-700 bg-gray-50 border border-gray-200 px-2 py-0.5">
+                        {tech}
                       </span>
                     ))}
                   </div>

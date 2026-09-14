@@ -52,16 +52,13 @@ describe('ProjectsSection', () => {
     expect(screen.getByText('[LIVE PRODUCTION ARCHITECTURE]')).toBeInTheDocument();
   });
 
-  it('renders confidential section label', () => {
-    expect(screen.getByText('[CONFIDENTIAL // PROPRIETARY ENTERPRISE AI]')).toBeInTheDocument();
+  it('renders enterprise section label', () => {
+    expect(screen.getByText('[ENTERPRISE & AI INFRASTRUCTURE]')).toBeInTheDocument();
   });
 
-  it('renders NDA PROTECTED label', () => {
-    expect(screen.getByText('NDA PROTECTED')).toBeInTheDocument();
-  });
-
-  it('renders CONFIDENTIAL / NDA RESTRICTED overlays', () => {
-    const overlays = screen.getAllByText('CONFIDENTIAL / NDA RESTRICTED');
-    expect(overlays.length).toBe(CONTENT.projects.confidential.length);
+  it('renders enterprise AI titles', () => {
+    CONTENT.projects.confidential.forEach((project) => {
+      expect(screen.getByText(project.title)).toBeInTheDocument();
+    });
   });
 });
