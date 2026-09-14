@@ -11,11 +11,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Enable experimental optimizations
-  experimental: {
-    optimizePackageImports: ['react-icons', 'lucide-react'],
-  },
-
   async headers() {
     return [
       {
