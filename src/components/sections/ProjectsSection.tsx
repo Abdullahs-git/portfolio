@@ -13,10 +13,10 @@ export const ProjectsSection = () => {
         {/* 1. Live Production Platforms */}
         <div className="mt-8">
           <div className="mb-4 flex items-center justify-between">
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+            <span className="text-sm font-medium text-gray-400">
               [LIVE PRODUCTION ARCHITECTURE]
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold">
+            <span className="text-sm font-medium text-black font-semibold">
               {CONTENT.projects.live.length} ACTIVE DEPLOYMENTS
             </span>
           </div>
@@ -28,12 +28,12 @@ export const ProjectsSection = () => {
                   {/* Architectural Graphic Header */}
                   <div className="w-full aspect-[16/9] bg-black text-white p-6 flex flex-col justify-between mb-8 relative overflow-hidden group-hover:bg-gray-950 transition-colors">
                     <div className="flex items-center justify-between z-10">
-                      <span className="font-mono text-[9px] tracking-widest text-gray-400 uppercase">
+                      <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
                         SYS // 0{i + 1}
                       </span>
                       <div className="flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-                        <span className="font-mono text-[9px] tracking-wider uppercase text-white">LIVE</span>
+                        <span className="text-sm font-medium text-white">LIVE</span>
                       </div>
                     </div>
 
@@ -52,7 +52,7 @@ export const ProjectsSection = () => {
                       <h3 className="font-sans text-xl md:text-2xl font-bold tracking-tight text-black">
                         {project.title}
                       </h3>
-                      <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 mt-1 block font-medium">
+                      <span className="text-sm font-medium text-gray-500 mt-1 block font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -62,7 +62,7 @@ export const ProjectsSection = () => {
                         href={`https://${project.url}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1 font-mono text-[10px] tracking-wider uppercase text-gray-500 hover:text-black border-b border-gray-300 hover:border-black pb-0.5 transition-colors"
+                        className="flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-black border-b border-gray-300 hover:border-black pb-0.5 transition-colors"
                         aria-label={`Visit ${project.title} at ${project.url}`}
                       >
                         Visit
@@ -79,7 +79,7 @@ export const ProjectsSection = () => {
                     {project.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="font-mono text-[9px] tracking-wider uppercase text-gray-700 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-sm"
+                        className="text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-sm"
                       >
                         {tech}
                       </span>
@@ -94,10 +94,10 @@ export const ProjectsSection = () => {
         {/* 2. Enterprise & AI Systems (Clear, Unblocked Cards) */}
         <div className="mt-16">
           <div className="mb-4 flex items-center justify-between">
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+            <span className="text-sm font-medium text-gray-400">
               [ENTERPRISE &amp; AI INFRASTRUCTURE]
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-600 font-medium">
+            <span className="text-sm font-medium text-gray-600 font-medium">
               HIGH-IMPACT AI SYSTEMS
             </span>
           </div>
@@ -111,14 +111,14 @@ export const ProjectsSection = () => {
                       <div>
                         <div className="flex items-center gap-2 mb-2">
                           <Cpu className="w-4 h-4 text-black" />
-                          <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 font-semibold">
+                          <span className="text-sm font-medium text-gray-500 font-semibold">
                             ENTERPRISE AI
                           </span>
                         </div>
                         <h3 className="font-sans text-2xl font-bold tracking-tight text-black">
                           {project.title}
                         </h3>
-                        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 block mt-1 font-medium">
+                        <span className="text-sm font-medium text-gray-500 block mt-1 font-medium">
                           {project.category}
                         </span>
                       </div>
@@ -130,7 +130,7 @@ export const ProjectsSection = () => {
 
                   <div className="flex flex-wrap gap-1.5 pt-6 border-t border-gray-100">
                     {project.stack.map((tech) => (
-                      <span key={tech} className="font-mono text-[9px] tracking-wider uppercase text-gray-700 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-sm">
+                      <span key={tech} className="text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-sm">
                         {tech}
                       </span>
                     ))}
@@ -144,10 +144,10 @@ export const ProjectsSection = () => {
         {/* 3. Mobile, FinTech & Specialized Systems */}
         <div className="mt-16">
           <div className="mb-4 flex items-center justify-between">
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+            <span className="text-sm font-medium text-gray-400">
               [SPECIALIZED &amp; APPLIED SYSTEMS]
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500">
+            <span className="text-sm font-medium text-gray-500">
               MOBILE &middot; FINTECH &middot; CLIENT UTILITY
             </span>
           </div>
@@ -160,12 +160,12 @@ export const ProjectsSection = () => {
                     <div>
                       <div className="flex items-center gap-1.5 mb-1.5">
                         <Layers className="w-3.5 h-3.5 text-gray-400" />
-                        <span className="font-mono text-[9px] tracking-wider uppercase text-gray-400">APPLIED</span>
+                        <span className="text-sm font-medium text-gray-400">APPLIED</span>
                       </div>
                       <h3 className="font-sans text-lg font-bold tracking-tight text-black">
                         {project.title}
                       </h3>
-                      <span className="font-mono text-[9px] tracking-wider uppercase text-gray-500 mt-0.5 block font-medium">
+                      <span className="text-sm font-medium text-gray-500 mt-0.5 block font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -188,7 +188,7 @@ export const ProjectsSection = () => {
 
                   <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-gray-100">
                     {project.stack.map((tech) => (
-                      <span key={tech} className="font-mono text-[9px] tracking-wider uppercase text-gray-700 bg-gray-50 border border-gray-200 px-2 py-0.5">
+                      <span key={tech} className="text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 px-2 py-0.5">
                         {tech}
                       </span>
                     ))}

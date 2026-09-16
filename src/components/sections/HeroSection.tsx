@@ -17,11 +17,11 @@ export const HeroSection = () => {
       >
         <div className="flex items-center gap-3">
           <span className="w-2 h-2 bg-black animate-pulse" />
-          <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold">
+          <span className="text-sm font-medium text-black font-semibold">
             {CONTENT.hero.status}
           </span>
         </div>
-        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 font-medium">
+        <span className="text-sm font-medium text-gray-500 font-medium">
           RESEARCHER &middot; FULL-STACK AI ENGINEER
         </span>
       </motion.div>
@@ -33,7 +33,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease }}
-            className="font-mono text-[11px] md:text-xs tracking-widest uppercase text-gray-500 mb-4 font-medium"
+            className="font-mono text-sm md:text-xs tracking-widest uppercase text-gray-500 mb-4 font-medium"
           >
             MUHAMMAD ABDULLAH BUTT
           </motion.p>
@@ -105,7 +105,7 @@ export const HeroSection = () => {
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           aria-label="Scroll down to research section"
         >
-          <span className="font-mono text-[10px] tracking-wider uppercase font-medium">Scroll to Research</span>
+          <span className="text-sm font-medium font-medium">Scroll to Research</span>
           <ArrowDown className="w-4 h-4 text-black group-hover:translate-y-0.5 transition-transform" />
         </motion.a>
       </motion.div>

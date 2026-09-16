@@ -65,6 +65,13 @@ export const metadata: Metadata = {
       "Published AI researcher. Architecting scalable platforms and parameter-efficient detection frameworks.",
     images: ["https://muhammadabdullahbutt.me/og-image.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

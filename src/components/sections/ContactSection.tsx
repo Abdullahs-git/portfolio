@@ -73,7 +73,7 @@ export const ContactSection = () => {
                 <div className="mt-12 flex flex-col divide-y divide-gray-800 border-y border-gray-800">
                   <a
                     href={`mailto:${CONTENT.contact.email}`}
-                    className="group flex items-center justify-between py-4 font-mono text-[11px] tracking-wider uppercase text-gray-400 hover:text-white transition-colors"
+                    className="group flex items-center justify-between py-4 text-sm font-medium text-gray-400 hover:text-white transition-colors"
                   >
                     <span>DIRECT EMAIL: {CONTENT.contact.email}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -82,7 +82,7 @@ export const ContactSection = () => {
                     href={`https://${CONTENT.contact.linkedin}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center justify-between py-4 font-mono text-[11px] tracking-wider uppercase text-gray-400 hover:text-white transition-colors"
+                    className="group flex items-center justify-between py-4 text-sm font-medium text-gray-400 hover:text-white transition-colors"
                   >
                     <span>LINKEDIN: {CONTENT.contact.linkedin}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -91,7 +91,7 @@ export const ContactSection = () => {
                     href={`https://${CONTENT.contact.github}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center justify-between py-4 font-mono text-[11px] tracking-wider uppercase text-gray-400 hover:text-white transition-colors"
+                    className="group flex items-center justify-between py-4 text-sm font-medium text-gray-400 hover:text-white transition-colors"
                   >
                     <span>GITHUB: {CONTENT.contact.github}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -106,7 +106,7 @@ export const ContactSection = () => {
                 <blockquote className="font-sans text-sm text-gray-400 font-light italic leading-relaxed">
                   &ldquo;{CONTENT.quote.text}&rdquo;
                 </blockquote>
-                <p className="font-mono text-[10px] tracking-wider uppercase text-gray-600 mt-3">
+                <p className="text-sm font-medium text-gray-600 mt-3">
                   {CONTENT.quote.author} &mdash; {CONTENT.quote.source}
                 </p>
               </div>
@@ -117,7 +117,7 @@ export const ContactSection = () => {
           <div className="lg:col-span-6">
             <FadeIn delay={0.2}>
               <div className="border border-gray-800 p-8 md:p-10 bg-gray-950/60">
-                <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400 block mb-6 pb-3 border-b border-gray-800">
+                <span className="text-sm font-medium text-gray-400 block mb-6 pb-3 border-b border-gray-800">
                   [DISPATCH INQUIRY]
                 </span>
 
@@ -132,7 +132,7 @@ export const ContactSection = () => {
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="font-mono text-[10px] tracking-wider uppercase text-black bg-white px-6 py-2.5 hover:bg-gray-200 transition-colors"
+                      className="text-sm font-medium text-black bg-white px-6 py-2.5 hover:bg-gray-200 transition-colors"
                     >
                       SEND ANOTHER TRANSMISSION
                     </button>
@@ -141,7 +141,7 @@ export const ContactSection = () => {
                   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6" noValidate>
                     {/* Name */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="name" className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+                      <label htmlFor="name" className="text-sm font-medium text-gray-400">
                         NAME / ORGANIZATION *
                       </label>
                       <input
@@ -158,7 +158,7 @@ export const ContactSection = () => {
                         }`}
                       />
                       {errors.name && (
-                        <span role="alert" className="font-mono text-[10px] text-red-400 tracking-wider">
+                        <span role="alert" className="font-mono text-sm text-red-400 tracking-wider">
                           {errors.name.message}
                         </span>
                       )}
@@ -166,7 +166,7 @@ export const ContactSection = () => {
 
                     {/* Email */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="email" className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+                      <label htmlFor="email" className="text-sm font-medium text-gray-400">
                         EMAIL ADDRESS *
                       </label>
                       <input
@@ -183,7 +183,7 @@ export const ContactSection = () => {
                         }`}
                       />
                       {errors.email && (
-                        <span role="alert" className="font-mono text-[10px] text-red-400 tracking-wider">
+                        <span role="alert" className="font-mono text-sm text-red-400 tracking-wider">
                           {errors.email.message}
                         </span>
                       )}
@@ -191,7 +191,7 @@ export const ContactSection = () => {
 
                     {/* Message */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="message" className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+                      <label htmlFor="message" className="text-sm font-medium text-gray-400">
                         PROJECT BRIEF / INQUIRY *
                       </label>
                       <textarea
@@ -208,7 +208,7 @@ export const ContactSection = () => {
                         }`}
                       />
                       {errors.message && (
-                        <span role="alert" className="font-mono text-[10px] text-red-400 tracking-wider">
+                        <span role="alert" className="font-mono text-sm text-red-400 tracking-wider">
                           {errors.message.message}
                         </span>
                       )}
@@ -216,7 +216,7 @@ export const ContactSection = () => {
 
                     {/* Server Error */}
                     {serverError && (
-                      <p role="alert" className="font-mono text-[10px] text-red-400 tracking-wider border border-red-800 px-3 py-2 bg-red-950/30">
+                      <p role="alert" className="font-mono text-sm text-red-400 tracking-wider border border-red-800 px-3 py-2 bg-red-950/30">
                         {serverError}
                       </p>
                     )}
@@ -225,7 +225,7 @@ export const ContactSection = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-2 flex items-center justify-center gap-2 w-full bg-white text-black py-3.5 font-mono text-xs uppercase tracking-wider font-semibold hover:bg-gray-200 transition-colors duration-200 disabled:opacity-50 cursor-pointer rounded-none"
+                      className="mt-2 flex items-center justify-center gap-2 w-full bg-white text-black py-3.5 text-sm font-medium font-semibold hover:bg-gray-200 transition-colors duration-200 disabled:opacity-50 cursor-pointer rounded-none"
                     >
                       {isSubmitting ? (
                         <span>TRANSMITTING...</span>
@@ -246,10 +246,10 @@ export const ContactSection = () => {
         {/* Footer info line */}
         <FadeIn delay={0.4}>
           <div className="mt-24 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-600">
+            <span className="text-sm font-medium text-gray-600">
               © 2026 MUHAMMAD ABDULLAH BUTT &mdash; ALL RIGHTS RESERVED
             </span>
-            <span className="font-mono text-[10px] tracking-wider uppercase text-gray-600">
+            <span className="text-sm font-medium text-gray-600">
               BASED IN {CONTENT.contact.location} &middot; AVAILABLE WORLDWIDE
             </span>
           </div>

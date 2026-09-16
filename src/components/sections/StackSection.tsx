@@ -114,7 +114,7 @@ export const StackSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-gray-200 border border-gray-200 mt-8">
             {categories.map(([category, skills]) => (
               <div key={category} className="bg-white p-6 md:p-8 flex flex-col">
-                <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400 mb-6 pb-4 border-b border-gray-100 font-semibold">
+                <span className="text-sm font-medium text-gray-400 mb-6 pb-4 border-b border-gray-100 font-semibold">
                   {category}
                 </span>
                 <ul className="flex flex-col gap-3">
@@ -128,7 +128,7 @@ export const StackSection = () => {
                         {Icon ? (
                           <Icon className="w-4 h-4 text-gray-500 group-hover:text-black transition-colors duration-300 flex-shrink-0" />
                         ) : (
-                          <span className="w-4 h-4 flex items-center justify-center text-[9px] font-mono text-gray-400 border border-gray-200 flex-shrink-0 rounded-sm">
+                          <span className="w-4 h-4 flex items-center justify-center text-sm font-mono text-gray-400 border border-gray-200 flex-shrink-0 rounded-sm">
                             ✦
                           </span>
                         )}
@@ -148,16 +148,15 @@ export const StackSection = () => {
         <FadeIn delay={0.2}>
           <div className="mt-12 border border-gray-200 bg-white p-8 md:p-10">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
-              <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+              <span className="text-sm font-medium text-gray-400">
                 OFFICIAL TOOLS &amp; BRAND LOGOS
               </span>
-              <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold">
-                {Object.values(CONTENT.stack).flat().length} TECHNOLOGIES
+              <span className="text-sm font-medium text-black font-semibold">
+                {Array.from(new Set(Object.values(CONTENT.stack).flat())).length} TECHNOLOGIES
               </span>
             </div>
             <div className="flex flex-wrap gap-2.5">
-              {Object.values(CONTENT.stack)
-                .flat()
+              {Array.from(new Set(Object.values(CONTENT.stack).flat()))
                 .map((skill) => {
                   const Icon = ICON_MAP[skill];
                   if (!Icon) return null;
@@ -168,7 +167,7 @@ export const StackSection = () => {
                       title={skill}
                     >
                       <Icon className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors duration-300" />
-                      <span className="font-mono text-[10px] tracking-wider uppercase text-gray-800 group-hover:text-white transition-colors duration-300 whitespace-nowrap font-medium">
+                      <span className="text-sm font-medium text-gray-800 group-hover:text-white transition-colors duration-300 whitespace-nowrap font-medium">
                         {skill}
                       </span>
                     </div>

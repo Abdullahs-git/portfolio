@@ -23,17 +23,17 @@ export const ResearchSection = () => {
                 {r.title}
               </h2>
               <div className="flex flex-wrap gap-3 mt-8">
-                <span className="font-mono text-[10px] tracking-wider uppercase text-black bg-white px-3 py-1.5">
+                <span className="text-sm font-medium text-black bg-white px-3 py-1.5">
                   {r.venue}
                 </span>
-                <span className="font-mono text-[10px] tracking-wider uppercase text-black bg-white px-3 py-1.5">
+                <span className="text-sm font-medium text-black bg-white px-3 py-1.5">
                   {r.publisher}
                 </span>
               </div>
-              <p className="font-mono text-[10px] tracking-wider uppercase text-gray-500 mt-6">
+              <p className="text-sm font-medium text-gray-500 mt-6">
                 {r.role}
               </p>
-              <p className="font-mono text-[10px] tracking-wider uppercase text-gray-600 mt-1">
+              <p className="text-sm font-medium text-gray-600 mt-1">
                 {r.pages} — {r.date}
               </p>
             </FadeIn>
@@ -46,15 +46,15 @@ export const ResearchSection = () => {
               {r.metrics.map((metric, i) => (
                 <FadeIn key={metric.label} delay={i * 0.08}>
                   <div className="bg-black p-6 md:p-8 flex flex-col">
-                    <span className="font-sans text-3xl md:text-4xl font-black tracking-tight text-white">
+                    <div className="font-sans text-3xl md:text-4xl font-black tracking-tight text-white">
                       {metric.value}
-                    </span>
-                    <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 mt-3">
+                    </div>
+                    <div className="text-sm font-medium text-gray-500 mt-3">
                       {metric.label}
-                    </span>
-                    <span className="font-mono text-[10px] tracking-wider uppercase text-gray-600 mt-0.5">
+                    </div>
+                    <div className="text-sm font-medium text-gray-600 mt-0.5">
                       {metric.sublabel}
-                    </span>
+                    </div>
                   </div>
                 </FadeIn>
               ))}
@@ -63,7 +63,7 @@ export const ResearchSection = () => {
             {/* Architecture Description */}
             <FadeIn delay={0.3}>
               <div className="mt-12 border-t border-gray-800 pt-8">
-                <p className="font-mono text-[10px] tracking-wider uppercase text-gray-500 mb-4">
+                <p className="text-sm font-medium text-gray-500 mb-4">
                   Architecture
                 </p>
                 <p className="font-sans text-sm md:text-base text-gray-400 leading-relaxed font-light max-w-2xl">
@@ -81,7 +81,7 @@ export const ResearchSection = () => {
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase text-white border-b border-gray-700 pb-1 hover:border-white transition-colors duration-300"
+                    className="group flex items-center gap-2 text-sm font-medium text-white border-b border-gray-700 pb-1 hover:border-white transition-colors duration-300"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 text-gray-500 group-hover:text-white transition-colors" />
@@ -93,13 +93,13 @@ export const ResearchSection = () => {
             {/* Secondary Paper */}
             <FadeIn delay={0.5}>
               <div className="mt-16 border-t border-gray-800 pt-8">
-                <p className="font-mono text-[10px] tracking-wider uppercase text-gray-600 mb-2">
+                <p className="text-sm font-medium text-gray-600 mb-2">
                   {s.status}
                 </p>
                 <h3 className="font-sans text-lg md:text-xl font-semibold text-gray-300 tracking-tight">
                   {s.title}
                 </h3>
-                <p className="font-mono text-[10px] tracking-wider uppercase text-gray-500 mt-2">
+                <p className="text-sm font-medium text-gray-500 mt-2">
                   {s.role}
                 </p>
                 <p className="font-sans text-sm text-gray-500 mt-3 leading-relaxed font-light max-w-xl">

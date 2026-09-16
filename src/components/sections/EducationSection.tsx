@@ -22,7 +22,7 @@ export const EducationSection = () => {
               <div className="border border-gray-200 p-8 bg-gray-50/50">
                 <div className="flex items-center gap-2 mb-4">
                   <GraduationCap className="w-4 h-4 text-black" />
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+                  <span className="text-sm font-medium text-gray-400">
                     ACADEMIC DEGREE
                   </span>
                 </div>
@@ -33,12 +33,12 @@ export const EducationSection = () => {
                 <p className="font-sans text-sm text-gray-600 mt-2 font-light">
                   {edu.institution}
                 </p>
-                <span className="inline-block font-mono text-[10px] tracking-wider uppercase text-gray-400 mt-2">
+                <span className="inline-block text-sm font-medium text-gray-400 mt-2">
                   {edu.dates}
                 </span>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold block mb-1">
+                  <span className="text-sm font-medium text-black font-semibold block mb-1">
                     UNDERGRADUATE THESIS
                   </span>
                   <p className="font-sans text-sm text-gray-500 font-light leading-relaxed">
@@ -53,7 +53,7 @@ export const EducationSection = () => {
               <div className="border border-gray-200 p-8">
                 <div className="flex items-center gap-2 mb-4">
                   <Award className="w-4 h-4 text-black" />
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+                  <span className="text-sm font-medium text-gray-400">
                     HONORS & COMPETITIVE HACKATHONS
                   </span>
                 </div>
@@ -61,7 +61,7 @@ export const EducationSection = () => {
                 <ul className="flex flex-col gap-3">
                   {honors.map((honor, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="font-mono text-[10px] text-gray-400 mt-0.5">
+                      <span className="font-mono text-sm text-gray-400 mt-0.5">
                         0{idx + 1}
                       </span>
                       <span className="font-sans text-sm text-gray-700 font-light leading-relaxed">
@@ -79,10 +79,10 @@ export const EducationSection = () => {
             <FadeIn delay={0.15}>
               <div className="border border-gray-200 p-8">
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400">
+                  <span className="text-sm font-medium text-gray-400">
                     PROFESSIONAL CERTIFICATIONS
                   </span>
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-black font-medium">
+                  <span className="text-sm font-medium text-black font-medium">
                     8 VERIFIED CREDENTIALS
                   </span>
                 </div>
@@ -97,10 +97,10 @@ export const EducationSection = () => {
                         {cert.name}
                       </span>
                       <div className="flex items-center gap-4 flex-shrink-0">
-                        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-500 bg-gray-100 px-2 py-0.5 border border-gray-200">
+                        <span className="text-sm font-medium text-gray-500 bg-gray-100 px-2 py-0.5 border border-gray-200">
                           {cert.issuer}
                         </span>
-                        <span className="font-mono text-[10px] tracking-wider uppercase text-gray-400 min-w-[36px] text-right">
+                        <span className="text-sm font-medium text-gray-400 min-w-[36px] text-right">
                           {cert.year}
                         </span>
                       </div>

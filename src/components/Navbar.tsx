@@ -36,7 +36,7 @@ export function Navbar() {
       >
         <nav className="max-w-[1400px] mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
           {/* Left */}
-          <a href="#" className="font-mono text-[10px] tracking-wider text-black uppercase">
+          <a href="#" className="text-sm font-semibold text-black">
             <span className="font-bold">[MUHAMMAD ABDULLAH BUTT]</span>
             <span className="text-gray-500 hidden sm:inline"> — PORTFOLIO &apos;26</span>
           </a>
@@ -47,7 +47,7 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="font-mono text-[10px] tracking-wider text-gray-600 uppercase hover:text-black font-medium transition-colors duration-300"
+                className="font-mono text-sm tracking-wider text-gray-600 uppercase hover:text-black font-medium transition-colors duration-300"
               >
                 {item.label}
               </a>
@@ -56,7 +56,7 @@ export function Navbar() {
 
           {/* Right Desktop Info & CV */}
           <div className="hidden md:flex items-center gap-4">
-            <span className="font-mono text-[10px] tracking-wider text-gray-500 uppercase">
+            <span className="font-mono text-sm tracking-wider text-gray-500 uppercase">
               STATUS: <span className="text-black font-semibold">AVAILABLE</span>
             </span>
             <a
@@ -64,7 +64,7 @@ export function Navbar() {
               download="Muhammad_Abdullah_Butt_CV.pdf"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 border border-black px-3 py-1 font-mono text-[9px] tracking-wider uppercase text-black hover:bg-black hover:text-white transition-colors duration-300 font-semibold"
+              className="flex items-center gap-1.5 border border-black px-3 py-1 text-sm font-medium text-black hover:bg-black hover:text-white transition-colors duration-300 font-semibold"
             >
               <Download className="w-3 h-3" />
               <span>CV</span>
@@ -98,15 +98,15 @@ export function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-2 border-b border-gray-100 font-mono text-xs uppercase tracking-wider text-black hover:text-gray-600 transition-colors"
+                  className="flex items-center justify-between py-2 border-b border-gray-100 text-sm font-medium text-black hover:text-gray-600 transition-colors"
                 >
                   <span className="font-medium">{item.label}</span>
-                  <span className="text-gray-400 text-[10px]">0{idx + 1}</span>
+                  <span className="text-gray-400 text-sm">0{idx + 1}</span>
                 </a>
               ))}
             </div>
 
-            <div className="pt-4 flex items-center justify-between border-t border-gray-100 font-mono text-[10px] tracking-wider uppercase text-gray-500">
+            <div className="pt-4 flex items-center justify-between border-t border-gray-100 text-sm font-medium text-gray-500">
               <a
                 href="/Muhammad_Abdullah_Butt_CV.pdf"
                 download="Muhammad_Abdullah_Butt_CV.pdf"

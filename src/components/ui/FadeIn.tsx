@@ -29,7 +29,7 @@ export const FadeIn = ({
 }: FadeInProps) => {
   const variants: Variants = {
     hidden: {
-      opacity: 0,
+      opacity: 1,
       ...directions[direction],
     },
     visible: {

@@ -25,7 +25,7 @@ export const ExperienceSection = () => {
                   <p className="font-sans text-sm text-gray-500 mt-1 font-light">
                     {exp.company}{exp.location ? ` — ${exp.location}` : ''}
                   </p>
-                  <span className="inline-block mt-3 font-mono text-[10px] tracking-wider uppercase text-gray-400 bg-gray-50 px-2.5 py-1 border border-gray-200">
+                  <span className="inline-block mt-3 text-sm font-medium text-gray-400 bg-gray-50 px-2.5 py-1 border border-gray-200">
                     {exp.duration}
                   </span>
                 </div>
@@ -37,7 +37,7 @@ export const ExperienceSection = () => {
                       {exp.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-3">
                           {bullet.metric && (
-                            <span className="font-mono text-[10px] tracking-wider uppercase text-black font-semibold bg-gray-100 px-2 py-0.5 self-start border border-gray-200 flex-shrink-0">
+                            <span className="text-sm font-medium text-black font-semibold bg-gray-100 px-2 py-0.5 self-start border border-gray-200 flex-shrink-0">
                               {bullet.metric}
                             </span>
                           )}
