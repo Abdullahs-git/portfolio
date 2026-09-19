@@ -1,69 +1,49 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
+import { display, mono } from "@/lib/fonts";
+import { MK } from "@/data/mk";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  weight: ["400", "500"],
-  display: "swap",
-});
+const SITE = "https://muhammadabdullahbutt.me";
+const TITLE = `${MK.identity.name} — ${MK.identity.role}`;
+const DESCRIPTION =
+  "Senior web designer and UI/UX developer. Research, interface design, design systems and production front-end, carried from the first sketch to the browser.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://muhammadabdullahbutt.me"),
-  title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer & Researcher",
-  description:
-    "Senior Full Stack AI Engineer & Published Researcher. Architecting scalable platforms and parameter-efficient deepfake detection frameworks. Published in Springer Nature.",
+  metadataBase: new URL(SITE),
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: [
-    "Full Stack Engineer",
-    "AI Researcher",
-    "MAPF-Lite",
-    "Springer Nature",
+    "Senior Web Designer",
+    "UI/UX Developer",
+    "Product Design",
+    "Design Systems",
+    "Front-end Developer",
     "Next.js",
     "React",
-    "TypeScript",
-    "Machine Learning",
-    "LLM",
-    "Deepfake Detection",
+    "Three.js",
+    "Portfolio",
   ],
-  authors: [{ name: "Muhammad Abdullah Butt" }],
+  authors: [{ name: MK.identity.name }],
   openGraph: {
-    title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer",
-    description:
-      "Published AI researcher. Architecting scalable platforms and parameter-efficient detection frameworks.",
-    url: "https://muhammadabdullahbutt.me",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE,
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://muhammadabdullahbutt.me/og-image.jpg",
+        url: `${SITE}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer & Researcher",
+        alt: TITLE,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Abdullah Butt — Senior Full-Stack AI Engineer",
-    description:
-      "Published AI researcher. Architecting scalable platforms and parameter-efficient detection frameworks.",
-    images: ["https://muhammadabdullahbutt.me/og-image.jpg"],
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [`${SITE}/og-image.jpg`],
   },
   icons: {
     icon: [
@@ -81,10 +61,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${jakarta.variable} ${jetbrainsMono.variable} antialiased font-sans bg-white text-black selection:bg-black selection:text-white`}
-      >
-        <SmoothScroll>{children}</SmoothScroll>
+      <body className={`${display.variable} ${mono.variable} antialiased`}>
+        {children}
 
         {/* JSON-LD Structured Data */}
         <script
@@ -93,19 +71,17 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Muhammad Abdullah Butt",
-              jobTitle: "Senior Full-Stack AI Engineer",
-              url: "https://muhammadabdullahbutt.me",
-              sameAs: [
-                "https://linkedin.com/in/muhammadabdullahbutt",
-                "https://github.com/Abdullahs-git",
-              ],
+              name: MK.identity.name,
+              jobTitle: MK.identity.role,
+              url: SITE,
+              email: MK.identity.email,
+              sameAs: [MK.identity.linkedin, MK.identity.github],
               knowsAbout: [
-                "Artificial Intelligence",
-                "Machine Learning",
-                "Full Stack Development",
-                "Deepfake Detection",
-                "LLM Engineering",
+                "User Experience Design",
+                "User Interface Design",
+                "Design Systems",
+                "Front-end Development",
+                "Web Design",
               ],
             }),
           }}
