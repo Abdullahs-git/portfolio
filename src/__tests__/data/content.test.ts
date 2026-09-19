@@ -90,7 +90,7 @@ describe('CONTENT data integrity', () => {
         expect(e.role.trim().length).toBeGreaterThan(0);
         expect(e.company.trim().length).toBeGreaterThan(0);
         expect(e.duration.trim().length).toBeGreaterThan(0);
-        expect(e.description.trim().length).toBeGreaterThan(0);
+        expect((e.description ?? "").trim().length).toBeGreaterThan(0);
       });
     });
   });
